@@ -157,6 +157,40 @@ table.tbl .nm{ color:var(--d-mut); font-size:11px; }
   border:1px solid var(--d-line); padding:3px 9px; border-radius:99px; white-space:nowrap; }
 .agent-pill.buy{ color:var(--d-pos); border-color:rgba(74,222,128,.4); } .agent-pill.hold{ color:var(--d-dim); }
 .agent-pill.trim{ color:var(--d-amber); border-color:rgba(245,181,68,.4); } .agent-pill.sell{ color:var(--d-neg); border-color:rgba(248,113,113,.4); }
+/* behavioural ledger — full inner tabs */
+.bl-subtabs{ display:flex; gap:4px; flex-wrap:wrap; margin:16px 0; border-bottom:1px solid var(--d-line); }
+.bl-subtab{ font-family:var(--font-mono); font-size:12px; color:var(--d-dim); background:none; border:0; border-bottom:2px solid transparent; padding:8px 10px; cursor:pointer; }
+.bl-subtab:hover{ color:var(--d-text); }
+.bl-subtab.on{ color:var(--d-accent); border-bottom-color:var(--d-accent); }
+.bl-sub{ display:none; } .bl-sub.on{ display:block; animation:fade .2s ease; }
+.pill-st{ font-size:9.5px; padding:2px 7px; border-radius:5px; font-weight:600; letter-spacing:.04em; }
+.st-intact{ color:var(--d-pos); background:rgba(74,222,128,.12); } .st-weak{ color:var(--d-amber); background:rgba(245,181,68,.14); }
+.st-broken{ color:var(--d-neg); background:rgba(248,113,113,.14); } .st-armed{ color:var(--d-amber); background:rgba(245,181,68,.14); } .st-cleared{ color:var(--d-pos); background:rgba(74,222,128,.12); }
+.pillar{ display:grid; grid-template-columns:1fr auto; gap:5px 12px; padding:11px 0; border-bottom:1px solid var(--d-line); }
+.pillar:last-child{ border-bottom:0; } .pillar .pn{ color:var(--d-text); font-size:13px; } .pillar .pnote{ grid-column:1/3; color:var(--d-dim); font-size:12px; }
+.debate-round{ background:var(--d-bg); border:1px solid var(--d-line); border-radius:9px; padding:14px; margin-bottom:12px; }
+.debate-round .topic{ font-size:11px; letter-spacing:.08em; color:var(--d-mut); margin-bottom:10px; text-transform:uppercase; }
+.debate-side{ display:grid; grid-template-columns:54px 1fr; gap:10px; font-size:12.5px; padding:6px 0; color:var(--d-dim); }
+.tag-b{ font-size:9px; font-weight:700; padding:2px 6px; border-radius:4px; height:fit-content; text-align:center; }
+.tag-bull{ color:var(--d-pos); background:rgba(74,222,128,.12);} .tag-bear{ color:var(--d-neg); background:rgba(248,113,113,.12);}
+.debate-side .who{ color:var(--d-mut); font-size:10.5px; }
+.scn3{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.scn{ background:var(--d-bg); border:1px solid var(--d-line); border-radius:9px; padding:14px; }
+.scn.bull{ border-color:rgba(74,222,128,.35);} .scn.bear{ border-color:rgba(248,113,113,.35);}
+.scn .sl{ font-size:10px; letter-spacing:.08em; color:var(--d-mut); display:flex; justify-content:space-between; text-transform:uppercase; }
+.scn .pr{ font-size:18px; color:var(--d-text); margin:8px 0 4px; font-weight:700; font-family:var(--font-mono);}
+.scn .lab{ font-size:11.5px; color:var(--d-dim);}
+.src-card{ background:var(--d-bg); border:1px solid var(--d-line); border-radius:9px; padding:12px 14px; margin-bottom:10px;}
+.src-card .sh{ display:flex; gap:8px; align-items:center; font-size:11px; color:var(--d-mut); margin-bottom:6px;}
+.src-card .st2{ font-size:9px; border:1px solid var(--d-line); padding:1px 6px; border-radius:4px; text-transform:uppercase;}
+.src-card .tt{ color:var(--d-text); font-size:12.5px; font-weight:600;}
+.src-card .sn{ color:var(--d-dim); font-size:12px; margin-top:5px; font-style:italic;}
+.jr{ display:grid; grid-template-columns:92px 1fr auto; gap:12px; padding:11px 0; border-bottom:1px solid var(--d-line);}
+.jr:last-child{ border-bottom:0;} .jr .jd{ font-size:11px; color:var(--d-mut);}
+.jr .ja{ color:var(--d-text); font-size:12.5px; font-weight:600;} .jr .jdet{ color:var(--d-dim); font-size:12px; margin-top:2px;}
+.jr .bias{ font-size:9px; color:var(--d-amber); background:rgba(245,181,68,.12); padding:1px 7px; border-radius:4px; margin-left:6px;}
+.tgt-row{ display:grid; grid-template-columns:130px 1fr 54px; gap:10px; align-items:center; font-size:12px; padding:6px 0; color:var(--d-dim);}
+.tgt-row .bar2{ height:6px; background:var(--d-line); border-radius:3px; overflow:hidden;} .tgt-row .bar2 i{ display:block; height:100%; background:var(--d-accent);}
 @media (max-width:820px){
   .dash-shell{ grid-template-columns:1fr; } .dash-side{ display:none; }
   .kpis{ grid-template-columns:repeat(2,1fr); } .ov-grid{ grid-template-columns:1fr; }
@@ -543,69 +577,39 @@ function calcSizer(){
 }
 calcSizer();
 
-/* ---- behavioural ledger ---- */
-var AG_ICON={macro:"🌐",tech:"📈",fund:"📊",risk:"🛡",sent:"💬",contra:"🔄",pm:"🎯"};
-var runs={
- NVDA:{ name:"NVIDIA Corporation", verdict:"HOLD", vclass:"hold", conf:78, date:"2026-05-08",
-   votes:{buy:1,hold:5,trim:1,sell:0},
-   horizon:["Earnings + Computex set the near-term tape. Bias: hold through the print.","Custom-silicon competition (AVGO/MRVL) starts to bite at the high-ASP tier.","Watch sovereign-AI orders and gross-margin trajectory toward 70%."],
-   facts:["Blackwell B200 supply still gated through Q3.","Guidance midpoint implies +12% QoQ datacenter revenue.","Inference compute now ~73% of revenue mix."],
-   dates:[["2026-05-19","Computex keynote"],["2026-05-22","Q1 FY27 earnings"]],
-   risks:["Export-control expansion (China tier-2 cities).","Hyperscaler capex digestion late 2026."],
-   agents:[
-     ["Macro Analyst","macro","hold","Easing cycle supports the growth multiple. Net positive."],
-     ["Technical Analyst","tech","hold","Holding the 50DMA. Next resistance $148. RSI neutral."],
-     ["Fundamentals","fund","buy","Operating leverage intact. FCF compounding ~35% YoY."],
-     ["Risk Officer","risk","hold","Single-name concentration acceptable at &lt;14% NAV."],
-     ["Sentiment","sent","hold","Options skew neutral; retail flows cooling from the peak."],
-     ["Contrarian","contra","trim","Crowded long; FY27 consensus leaves little room for upside surprise."],
-     ["Portfolio Manager","pm","hold","Thesis intact; sized at target — no add into earnings."]
-   ]},
- APD:{ name:"Air Products", verdict:"TRIM", vclass:"trim", conf:64, date:"2026-05-05",
-   votes:{buy:0,hold:2,trim:4,sell:1},
-   horizon:["Industrial-gas demand soft; near-term estimates drifting lower.","Project backlog supports a floor but ROIC is under pressure.","Re-rate needs clean execution on clean-hydrogen capex."],
-   facts:["Volumes −3% YoY in merchant gases.","Hydrogen capex guidance trimmed twice.","Position −10.4% vs cost."],
-   dates:[["2026-05-08","Investor day"],["2026-08-01","Q3 earnings"]],
-   risks:["Capex overruns on hydrogen projects.","Energy-cost passthrough lag."],
-   agents:[
-     ["Macro Analyst","macro","hold","Industrial cycle bottoming but no clear inflection yet."],
-     ["Technical Analyst","tech","trim","Below 200DMA; lower highs since February."],
-     ["Fundamentals","fund","trim","Estimate cuts outpacing price; ROIC compressing."],
-     ["Risk Officer","risk","hold","Small position; loss within budgeted risk."],
-     ["Sentiment","sent","trim","Sell-side downgrades accelerating."],
-     ["Contrarian","contra","hold","Washed-out name; contrarian floor forming."],
-     ["Portfolio Manager","pm","sell","Thesis softening — redeploy into higher-conviction AI-infra."]
-   ]}
-};
-function pill(v){var m={buy:"BUY",hold:"HOLD",trim:"TRIM",sell:"SELL"};return '<span class="agent-pill '+v+'">● '+m[v]+'</span>';}
+/* ---- behavioural ledger (full) ---- */
+var AG={"macro": ["Macro Analyst", "🌐"], "tech": ["Technical Analyst", "📈"], "fundi": ["Fundamentals", "📊"], "risk": ["Risk Officer", "🛡️"], "flow": ["Flow Tracker", "💸"], "thesis": ["Thesis Keeper", "🎯"], "devil": ["Devil's Advocate", "😈"]};
+var LEDGER={"NVDA": {"name": "NVIDIA Corporation", "verdict": "hold", "conf": 78, "date": "2026-05-08", "consensus": {"buy": 1, "hold": 5, "trim": 1, "sell": 0}, "next1m": "Earnings + Computex set the near-term tape. Bias: hold through print.", "next6m": "Custom-silicon competition (AVGO/MRVL) starts to bite at high-ASP tier.", "next1y": "Watch sovereign AI orders and gross-margin trajectory toward 70%.", "keyFacts": ["Blackwell B200 supply still gated through Q3.", "Guidance midpoint implies +12% QoQ data-center revenue.", "Inference compute share now ~73% of revenue mix."], "keyDates": [["2026-05-28", "Q1 FY27 Earnings"], ["2026-05-19", "Computex Keynote"]], "risks": ["Export controls expansion (China tier-2 cities).", "Hyperscaler capex digestion late 2026."], "agentNotes": [["macro", "Easing cycle supports growth multiple. Net positive."], ["tech", "Holding 50DMA. Next resistance $148. RSI neutral."], ["fundi", "Operating leverage intact. FCF compounding 35% YoY."], ["risk", "Single-name concentration acceptable at &lt;14% NAV."], ["flow", "Net institutional buying 4 weeks running."], ["thesis", "Original thesis (CUDA moat + accel cycle) intact."], ["devil", "Custom silicon eats 18-22% of TAM by 2027."]], "thesisPillars": [["CUDA software moat", "intact", "Switching cost survey: 87% of buyers cite CUDA as #1 reason to stay."], ["Accelerated-compute supercycle", "intact", "Hyperscaler capex guides remain 2026 &gt; 2025 across all four."], ["High-ASP data-center pricing power", "weakening", "AVGO/MRVL custom silicon win-rate up to 22% in tier-1 inference RFPs."], ["Sovereign-AI demand tailwind", "intact", "13 new sovereign orders LTM; ~$11B contracted backlog disclosed."]], "tripwires": [["DC GM falls below 70% for 2 consecutive quarters", "Data-center gross margin", "74.2%", "70.0%", "armed"], ["Hyperscaler capex guidance cut &gt;10% YoY", "Top-4 hyperscaler capex", "+18% YoY", "-10% YoY", "armed"], ["Custom-silicon share of inference TAM &gt; 25%", "AVGO+MRVL inference share", "22%", "25%", "armed"], ["China revenue &gt;0 (export-control regression)", "China DC revenue", "$0", "&gt;$0", "cleared"]], "debate": [{"round": 1, "topic": "Custom-silicon threat", "bull": ["thesis", "CUDA + NVLink lock-in keeps inference RFPs &gt;75% NVDA through 2027."], "bear": ["devil", "AVGO TPU + MRVL ASIC closed 22% of new tier-1 RFPs LTM. Trend is the story."]}, {"round": 2, "topic": "Earnings setup", "bull": ["fundi", "Operating leverage means even +8% rev surprise -&gt; +18% EPS surprise."], "bear": ["tech", "Stock priced for +12% beat. Whisper at +15%. Asymmetric to the downside."]}, {"round": 3, "topic": "Position size", "bull": ["flow", "Net institutional buying 4 wks; passive flows mechanical bid into Russell rebal."], "bear": ["risk", "Single-name &gt;13% NAV. One bad print is a &gt;2% portfolio drawdown."]}], "scenarios": {"bull": [158, 195, 240, 0.25, "Beat-and-raise + sovereign upgrade"], "base": [142, 158, 178, 0.55, "In-line print, GM holds 73%+"], "bear": [118, 108, 95, 0.2, "GM compression + capex pause Q4"]}, "agentTargets": [["fundi", 195, 0.8], ["tech", 168, 0.55], ["macro", 182, 0.65], ["flow", 175, 0.7], ["thesis", 188, 0.75], ["risk", 150, 0.6], ["devil", 122, 0.45]], "catalysts": [["2026-05-19", "Computex keynote", "product", "med"], ["2026-05-28", "Q1 FY27 earnings", "earnings", "high"], ["2026-06-12", "FOMC", "macro", "med"], ["2026-07-09", "GTC Asia", "product", "low"], ["2026-08-27", "Q2 FY27 earnings", "earnings", "high"], ["2026-09-15", "BIS export-control review", "regulatory", "high"], ["2026-11-19", "Q3 FY27 earnings", "earnings", "high"]], "sources": [["fundi", "10-Q", "NVDA Q4 FY26 10-Q · Note 8 — Segment", "2026-02-26", "Data Center revenue of $35.6B grew 142% from a year ago and 16% sequentially."], ["fundi", "transcript", "CFO Colette Kress — Q4 call", "2026-02-26", "We expect data-center gross margins to remain in the mid-70s through fiscal 2027."], ["flow", "13F", "Vanguard, BlackRock 13F filings", "2026-04-30", "Combined passive ownership rose 0.4 pp to 17.8% — fourth consecutive quarterly increase."], ["macro", "speech", "Powell — Stanford GSB", "2026-04-22", "Reaffirmed two-cuts-by-year-end framing; balance-of-risks language preserved."], ["tech", "chart", "Daily candles, 50/200 DMA, RSI", "2026-05-08", "Holding 50DMA at $138.20 on declining volume; RSI 52 (neutral)."], ["devil", "news", "The Information — AVGO TPU win-rate report", "2026-05-04", "Three of four tier-1 hyperscalers ran AVGO bake-offs in Q1; one moved 8% of inference workload."], ["thesis", "survey", "Bernstein dev survey, n=412", "2026-04-18", "87% of GPU developers cite CUDA tooling as the single biggest reason to stay on NVDA."]], "journal": [["2025-11-14", "Initial buy", "you", "Bought 80 sh @ $134.50 — pre-earnings setup", "+ $1,160", null], ["2026-02-26", "Agents -&gt; HOLD", "agents", "Earnings beat, raised guide. Consensus held.", null, null], ["2026-02-27", "Trim 20%", "you", "Sold 16 sh @ $146.80 against agents (still HOLD).", "+ $196", "loss aversion"], ["2026-03-19", "Agents -&gt; HOLD", "agents", "GTC keynote underwhelmed; thesis intact.", null, null], ["2026-04-08", "Add on dip", "you", "Bought 12 sh @ $128.40 — agents had no new signal.", "+ $138", "recency bias"], ["2026-05-08", "Agents -&gt; HOLD", "agents", "Pre-Computex re-run; conf 78%.", null, null]]}, "APD": {"name": "Air Products", "verdict": "trim", "conf": 62, "date": "2026-05-05", "consensus": {"buy": 0, "hold": 2, "trim": 4, "sell": 1}, "next1m": "Watch NEOM cost-overrun update. Skew negative.", "next6m": "Capital allocation reset under new CEO is the swing factor.", "next1y": "If hydrogen capex resets to $2.5B, multiple expands. Otherwise, dead money.", "keyFacts": ["Hydrogen capex run-rate $4.5B/yr.", "NEOM project timeline pushed 9 months.", "Activist (Mantle Ridge) board change priced in."], "keyDates": [["2026-06-12", "NEOM Update"], ["2026-07-30", "Q2 Earnings"]], "risks": ["Capex discipline failure", "Industrial gas price softness in EU"], "agentNotes": [["macro", "Industrial demand soft in Europe."], ["tech", "Below 200DMA, head-and-shoulders forming."], ["fundi", "FCF conversion &lt;50%. Worst in 5y."], ["risk", "Elevated. Tail event = NEOM write-down."], ["flow", "Net institutional outflows 6 weeks."], ["thesis", "Thesis on watch. Capital allocation is the wedge."], ["devil", "CEO change is necessary but not sufficient."]], "thesisPillars": [["Industrial-gas pricing power", "intact", "EU contract repricing held +4% in Q1."], ["Hydrogen capex discipline", "broken", "NEOM cost overrun + 9-mo delay; capex $4.5B vs $3.0B plan."], ["Activist-driven reset", "weakening", "Mantle Ridge wins 2 board seats; CEO succession unresolved."]], "tripwires": [["NEOM capex &gt;$5B annualized", "Hydrogen capex run-rate", "$4.5B", "$5.0B", "armed"], ["EU industrial-gas pricing rolls over", "EU contract pricing YoY", "+4%", "&lt;0%", "armed"], ["Activist exits position", "Mantle Ridge stake", "4.1%", "&lt;2%", "armed"]], "debate": [{"round": 1, "topic": "Hydrogen capex", "bull": ["thesis", "Activist + new CEO reset capex to $2.5B; multiple re-rates 2 turns."], "bear": ["devil", "CEO change is necessary, not sufficient. NEOM contract is fixed-price."]}, {"round": 2, "topic": "Demand backdrop", "bull": ["fundi", "Industrial-gas pricing held +4% YoY; defensive cash flow profile."], "bear": ["macro", "EU PMI sub-50 for 14 months. Volume offset coming."]}], "scenarios": {"bull": [290, 330, 380, 0.2, "Capex reset to $2.5B + multiple expansion"], "base": [268, 270, 275, 0.55, "Dead money through transition"], "bear": [248, 220, 195, 0.25, "NEOM write-down + dividend cut"]}, "agentTargets": [["fundi", 285, 0.55], ["tech", 240, 0.6], ["macro", 250, 0.5], ["flow", 245, 0.65], ["thesis", 310, 0.5], ["risk", 220, 0.7], ["devil", 200, 0.55]], "catalysts": [["2026-06-12", "NEOM cost update", "product", "high"], ["2026-07-30", "Q2 earnings", "earnings", "high"], ["2026-09-04", "CEO transition", "product", "high"], ["2026-10-22", "Q3 earnings", "earnings", "med"], ["2026-12-10", "EU energy ruling", "regulatory", "med"]], "sources": [["fundi", "10-Q", "APD Q1 FY26 10-Q · MD&amp;A", "2026-02-04", "Hydrogen project capital expenditures of $1.1B in the quarter."], ["devil", "news", "WSJ — NEOM project delay", "2026-04-19", "Saudi NEOM project slips 9 months on contractor disputes."], ["flow", "13D", "Mantle Ridge 13D amendment", "2026-03-11", "Stake disclosed at 4.1%; two board seats secured."], ["macro", "data", "Eurozone Manufacturing PMI", "2026-05-02", "PMI 47.8, 14th consecutive month below 50."]], "journal": [["2024-08-22", "Initial buy", "you", "Bought 30 sh @ $258.10 — anchoring on 2022 highs.", "+ $312", "anchoring"], ["2025-09-15", "Agents -&gt; HOLD", "agents", "Pre-activist run; thesis intact.", null, null], ["2026-02-04", "Agents -&gt; TRIM", "agents", "Capex blowout; first downgrade.", null, null], ["2026-02-05", "No action", "you", "Held against agent guidance.", "- $440", "sunk-cost"], ["2026-05-05", "Agents -&gt; TRIM", "agents", "Re-run after WSJ NEOM piece.", null, null]]}};
+function agName(id){return AG[id]?AG[id][0]:id;}
+function agEmoji(id){return AG[id]?AG[id][1]:"•";}
+function cbar(c){var t=c.buy+c.hold+c.trim+c.sell;function s(cl,n){return n>0?'<i class="'+cl+'" style="width:'+(n/t*100)+'%"></i>':'';}return '<div class="consensus-bar">'+s("cb-buy",c.buy)+s("cb-hold",c.hold)+s("cb-trim",c.trim)+s("cb-sell",c.sell)+'</div>';}
+var SUBS=[["summary","Summary"],["debate","Debate"],["thesis","Thesis & tripwires"],["catalysts","Catalysts"],["scenarios","Scenarios"],["sources","Sources"],["journal","Journal"]];
 function renderLedgerList(active){
- var keys=Object.keys(runs);
- document.getElementById("ledger-list").innerHTML=keys.map(function(k){
-   var r=runs[k], tot=r.votes.buy+r.votes.hold+r.votes.trim+r.votes.sell;
-   var seg=function(c,n){return n>0?'<i class="'+c+'" style="width:'+(n/tot*100)+'%"></i>':'';};
-   return '<div class="ledger-item'+(k===active?' on':'')+'" onclick="showRun(\''+k+'\')">'
-    +'<div class="lhead"><span class="lt">'+k+'</span><span class="badge '+r.vclass+'">'+r.verdict+'</span></div>'
-    +'<div class="consensus-bar">'+seg("cb-buy",r.votes.buy)+seg("cb-hold",r.votes.hold)+seg("cb-trim",r.votes.trim)+seg("cb-sell",r.votes.sell)+'</div>'
-    +'<div class="ld">buy '+r.votes.buy+' · hold '+r.votes.hold+' · trim '+r.votes.trim+' · sell '+r.votes.sell+' &nbsp;·&nbsp; '+r.date+'</div></div>';
+ document.getElementById("ledger-list").innerHTML=Object.keys(LEDGER).map(function(k){var r=LEDGER[k],c=r.consensus;
+  return '<div class="ledger-item'+(k===active?" on":"")+'" onclick="showRun(\''+k+'\')"><div class="lhead"><span class="lt">'+k+'</span><span class="badge '+r.verdict+'">'+r.verdict.toUpperCase()+'</span></div>'+cbar(c)+'<div class="ld">buy '+c.buy+' · hold '+c.hold+' · trim '+c.trim+' · sell '+c.sell+' · '+r.date+'</div></div>';
  }).join("");
 }
 function showRun(k){
- renderLedgerList(k);
- var r=runs[k], tot=r.votes.buy+r.votes.hold+r.votes.trim+r.votes.sell;
- var seg=function(c,n){return n>0?'<i class="'+c+'" style="width:'+(n/tot*100)+'%"></i>':'';};
- var hz=["NEXT 1 MONTH","NEXT 6 MONTHS","NEXT 1 YEAR"];
- var html='<div class="bl-dhead"><div><div class="nm2">'+r.name+'</div><h3>'+k+'</h3></div>'
-  +'<div style="text-align:right;"><span class="badge '+r.vclass+'">'+r.verdict+'</span><div style="font-size:11px;color:var(--d-mut);margin-top:6px;">consensus conf '+r.conf+'%</div></div></div>'
-  +'<div class="consensus-bar" style="margin-top:14px;">'+seg("cb-buy",r.votes.buy)+seg("cb-hold",r.votes.hold)+seg("cb-trim",r.votes.trim)+seg("cb-sell",r.votes.sell)+'</div>'
-  +'<div class="ld" style="font-size:11.5px;color:var(--d-mut);margin-top:7px;">7-agent vote · buy '+r.votes.buy+' · hold '+r.votes.hold+' · trim '+r.votes.trim+' · sell '+r.votes.sell+'</div>'
-  +'<div class="sum3">'+r.horizon.map(function(t,i){return '<div class="sumcard"><div class="h">'+hz[i]+'</div><div class="b">'+t+'</div></div>';}).join("")+'</div>'
-  +'<div class="two"><div><div class="h-lab">KEY FACTS</div><ul class="flist">'+r.facts.map(function(f,i){return '<li><b>0'+(i+1)+'</b><span>'+f+'</span></li>';}).join("")+'</ul></div>'
-  +'<div><div class="h-lab">KEY DATES</div><ul class="flist">'+r.dates.map(function(d){return '<li><b>'+d[0]+'</b><span>'+d[1]+'</span></li>';}).join("")
-  +'</ul><div class="h-lab" style="margin-top:16px;">RISKS</div><ul class="flist risk">'+r.risks.map(function(x){return '<li><b>▲</b><span>'+x+'</span></li>';}).join("")+'</ul></div></div>'
-  +'<div class="h-lab" style="margin-top:18px;">AGENT TRANSCRIPT</div>'
-  +r.agents.map(function(a){return '<div class="agent-row"><div class="agent-name"><span class="ico">'+AG_ICON[a[1]]+'</span><div>'+a[0]+'<small>agent · '+a[1]+'</small></div></div>'
-    +'<div class="agent-say">'+a[3]+'</div>'+pill(a[2])+'</div>';}).join("");
- document.getElementById("bl-detail").innerHTML=html;
+ renderLedgerList(k); var r=LEDGER[k]; var hz=["NEXT 1 MONTH","NEXT 6 MONTHS","NEXT 1 YEAR"];
+ var head='<div class="bl-dhead"><div><div class="nm2">'+r.name+'</div><h3>'+k+'</h3></div><div style="text-align:right;"><span class="badge '+r.verdict+'">'+r.verdict.toUpperCase()+'</span><div style="font-size:11px;color:var(--d-mut);margin-top:6px;">consensus conf '+r.conf+'%</div></div></div>'+cbar(r.consensus)+'<div class="ld" style="font-size:11.5px;color:var(--d-mut);margin-top:7px;">7-agent vote · buy '+r.consensus.buy+' · hold '+r.consensus.hold+' · trim '+r.consensus.trim+' · sell '+r.consensus.sell+'</div>';
+ var nav='<div class="bl-subtabs">'+SUBS.map(function(s,i){return '<button class="bl-subtab'+(i===0?" on":"")+'" onclick="blSub(\''+s[0]+'\')">'+s[1]+'</button>';}).join("")+'</div>';
+ var summary='<div class="sum3">'+[r.next1m,r.next6m,r.next1y].map(function(t,i){return '<div class="sumcard"><div class="h">'+hz[i]+'</div><div class="b">'+t+'</div></div>';}).join("")+'</div><div class="two"><div><div class="h-lab">KEY FACTS</div><ul class="flist">'+r.keyFacts.map(function(f,i){return '<li><b>0'+(i+1)+'</b><span>'+f+'</span></li>';}).join("")+'</ul></div><div><div class="h-lab">KEY DATES</div><ul class="flist">'+r.keyDates.map(function(d){return '<li><b>'+d[0]+'</b><span>'+d[1]+'</span></li>';}).join("")+'</ul><div class="h-lab" style="margin-top:16px;">RISKS</div><ul class="flist risk">'+r.risks.map(function(x){return '<li><b>▲</b><span>'+x+'</span></li>';}).join("")+'</ul></div></div><div class="h-lab" style="margin-top:18px;">AGENT TRANSCRIPT · 7 PERSONAS</div>'+r.agentNotes.map(function(a){return '<div class="agent-row"><div class="agent-name"><span class="ico">'+agEmoji(a[0])+'</span><div>'+agName(a[0])+'<small>agent · '+a[0]+'</small></div></div><div class="agent-say">'+a[1]+'</div></div>';}).join("");
+ var debate=r.debate.map(function(d){return '<div class="debate-round"><div class="topic">Round '+d.round+' · '+d.topic+'</div><div class="debate-side"><span class="tag-b tag-bull">BULL</span><div>'+d.bull[1]+'<div class="who">'+agName(d.bull[0])+'</div></div></div><div class="debate-side"><span class="tag-b tag-bear">BEAR</span><div>'+d.bear[1]+'<div class="who">'+agName(d.bear[0])+'</div></div></div></div>';}).join("");
+ var stMap={intact:["st-intact","INTACT"],weakening:["st-weak","WEAKENING"],broken:["st-broken","BROKEN"]};
+ var thesis='<div class="h-lab">THESIS PILLARS</div>'+r.thesisPillars.map(function(p){var s=stMap[p[1]];return '<div class="pillar"><span class="pn">'+p[0]+'</span><span class="pill-st '+s[0]+'">'+s[1]+'</span><span class="pnote">'+p[2]+'</span></div>';}).join("")+'<div class="h-lab" style="margin-top:18px;">TRIPWIRES</div><table class="tbl"><thead><tr><th>RULE</th><th>METRIC</th><th>CURRENT</th><th>THRESHOLD</th><th>STATUS</th></tr></thead><tbody>'+r.tripwires.map(function(t){var st=t[4]==="armed"?"st-armed":"st-cleared";return '<tr><td style="text-align:left;color:var(--d-dim)">'+t[0]+'</td><td>'+t[1]+'</td><td style="color:var(--d-text)">'+t[2]+'</td><td>'+t[3]+'</td><td style="text-align:right;"><span class="pill-st '+st+'">'+t[4].toUpperCase()+'</span></td></tr>';}).join("")+'</tbody></table>';
+ var catalysts='<table class="tbl"><thead><tr><th>DATE</th><th>EVENT</th><th>TYPE</th><th>IMPACT</th></tr></thead><tbody>'+r.catalysts.map(function(c){var ic=c[3]==="high"?"neg":(c[3]==="med"?"amber":"");return '<tr><td>'+c[0]+'</td><td style="text-align:left;color:var(--d-text)">'+c[1]+'</td><td><span class="chip-th">'+c[2]+'</span></td><td style="text-align:right;" class="'+ic+'">'+c[3].toUpperCase()+'</td></tr>';}).join("")+'</tbody></table>';
+ var sc=r.scenarios,maxT=Math.max.apply(null,r.agentTargets.map(function(t){return t[1];}));
+ function scnCard(cls,o){return '<div class="scn '+cls+'"><div class="sl"><span>'+cls.toUpperCase()+'</span><span>'+Math.round(o[3]*100)+'%</span></div><div class="pr">$'+o[2]+'</div><div class="sl" style="text-transform:none;color:var(--d-mut)">1m $'+o[0]+' · 6m $'+o[1]+'</div><div class="lab" style="margin-top:8px;">'+o[4]+'</div></div>';}
+ var scenarios='<div class="scn3">'+scnCard("bull",sc.bull)+scnCard("base",sc.base)+scnCard("bear",sc.bear)+'</div><div class="h-lab" style="margin-top:18px;">PER-AGENT 1Y PRICE TARGETS</div>'+r.agentTargets.map(function(t){return '<div class="tgt-row"><span>'+agEmoji(t[0])+' '+agName(t[0])+'</span><div class="bar2"><i style="width:'+(t[1]/maxT*100)+'%"></i></div><span style="text-align:right;color:var(--d-text)">$'+t[1]+'</span></div>';}).join("");
+ var sources=r.sources.map(function(s){return '<div class="src-card"><div class="sh"><span class="st2">'+s[1]+'</span><span>'+agName(s[0])+'</span><span style="margin-left:auto;">'+s[3]+'</span></div><div class="tt">'+s[2]+'</div><div class="sn">“'+s[4]+'”</div></div>';}).join("");
+ var journal=r.journal.map(function(j){var pc=j[4]?((j[4].indexOf("-")>=0)?"neg":"pos"):"";return '<div class="jr"><div class="jd">'+j[0]+'</div><div><div class="ja">'+j[1]+' <span style="color:var(--d-mut);font-weight:400;">· '+j[2]+'</span>'+(j[5]?'<span class="bias">'+j[5]+'</span>':"")+'</div><div class="jdet">'+j[3]+'</div></div><div class="jp '+pc+'">'+(j[4]||"")+'</div></div>';}).join("");
+ function sub(id,html){return '<div class="bl-sub'+(id==="summary"?" on":"")+'" id="bsub-'+id+'">'+html+'</div>';}
+ document.getElementById("bl-detail").innerHTML=head+nav+sub("summary",summary)+sub("debate",debate)+sub("thesis",thesis)+sub("catalysts",catalysts)+sub("scenarios",scenarios)+sub("sources",sources)+sub("journal",journal);
+}
+function blSub(id){
+ document.querySelectorAll(".bl-subtab").forEach(function(b){b.classList.toggle("on", b.getAttribute("onclick").indexOf("'"+id+"'")>=0);});
+ document.querySelectorAll(".bl-sub").forEach(function(p){p.classList.remove("on");});
+ var el=document.getElementById("bsub-"+id); if(el) el.classList.add("on");
 }
 showRun("NVDA");
 
