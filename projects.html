@@ -32,21 +32,38 @@
   </div>
 </header>
 
-<section class="hero" style="padding-bottom:24px;">
+<section class="hero" style="padding-bottom:20px;">
   <div class="wrap reveal">
     <p class="eyebrow">Projects</p>
     <h1 style="font-size:clamp(30px,4.6vw,50px);">Systems that left the notebook.</h1>
-    <p class="section-lead" style="margin-top:18px;font-size:18px;">Two tracks. On one side, production quantitative systems delivered for banks, insurers, and industrial clients during my time at Fraunhofer ITWM. On the other, a personal platform where I push modern software practice and human-in-the-loop AI delivery as far as I can take them.</p>
+    <p class="section-lead" style="margin-top:18px;font-size:18px;">Two tracks. On one side, a personal platform where I push modern software practice and human-in-the-loop AI delivery as far as I can take them. On the other, production quantitative systems delivered for banks, insurers, and industrial clients during my time at Fraunhofer ITWM (client code is confidential, described by sector only).</p>
   </div>
 </section>
 
-<!-- TRACK A: Builder / AI -->
-<section style="padding-top:18px;">
+<!-- ===================== TABS ===================== -->
+<section style="padding-top:6px;padding-bottom:0;">
+  <div class="wrap" style="text-align:center;">
+    <div class="tabbar" role="tablist" aria-label="Project categories">
+      <button class="tab-btn" id="tab-btn-fraunhofer" role="tab" aria-controls="panel-fraunhofer" aria-selected="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg>
+        <span>Fraunhofer<span class="seg-long"> ITWM · client systems</span></span> <span class="tcount">6</span>
+      </button>
+      <button class="tab-btn" id="tab-btn-personal" role="tab" aria-controls="panel-personal" aria-selected="false" tabindex="-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg>
+        <span><span class="seg-long">Personal &amp; </span>applied AI</span> <span class="tcount">3</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PANEL A: Personal / AI ===================== -->
+<div id="panel-personal" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-personal">
+<section style="padding-top:26px;">
   <div class="wrap">
     <div class="reveal">
       <p class="eyebrow">Track A · Builder / applied AI</p>
       <h2 class="section-title">Personal engineering &amp; AI work</h2>
-      <p class="section-lead">Greenfield, solo-built, and deliberately over-engineered to production standards as a proving ground.</p>
+      <p class="section-lead">Greenfield, solo-built, and deliberately over-engineered to production standards as a proving ground. These are mine — open and linkable.</p>
     </div>
 
     <div style="display:grid;gap:18px;margin-top:28px;">
@@ -66,7 +83,7 @@
         </div>
         <ul>
           <li>A personal investment-analytics platform on a four-layer clean architecture — UI, services, domain, ports &amp; adapters — with a zero-I/O domain layer enforced by import-boundary linting in CI and strictly typed boundaries via Pydantic v2.</li>
-          <li>Domain layer includes a German FIFO capital-gains tax engine implementing Abgeltungsteuer, the Sparerpauschbetrag allowance, and Verlustverrechnungstöpfe carry-forward — unit-tested against hand-calculated references — plus a pre-trade simulator computing exact lot consumption and tax impact before a trade.</li>
+          <li>Domain layer includes a German FIFO capital-gains tax engine implementing the flat-rate investment-income tax, the annual saver's tax-free allowance, and loss-offset carry-forward buckets — unit-tested against hand-calculated references — plus a pre-trade simulator computing exact lot consumption and tax impact before a trade.</li>
           <li>Multi-source data layer composes market-data APIs, FX feeds, and broker CSV imports through adapter/composite patterns, with TTL caching and ISIN-to-ticker resolution; FX-aware EUR-native valuation with correlation, concentration, and performance analytics.</li>
           <li>Shipped as 70+ tickets across 7 milestones with an 867-test regression suite; CI runs tests, type-checking, and architecture-boundary linting on every PR.</li>
           <li>Built and hardened a human-in-the-loop agentic-AI delivery workflow: a chat surface drafts schema-compliant tickets; a CLI implementation agent executes one ticket per branch/PR with deterministic state transitions tied to GitHub Issues; branch protection forces PR-only merges.</li>
@@ -82,7 +99,7 @@
             <span class="status-chip wip"><span class="dot"></span>In progress</span>
           </div>
           <ul>
-            <li>A focused tool that turns broker data into German capital-income (KAP) tax reporting, building on the dashboard's FIFO / Abgeltungsteuer logic.</li>
+            <li>A focused tool that turns broker data into German capital-income tax reporting, building on the dashboard's FIFO / flat-rate-tax logic.</li>
             <li>The monetisation experiment — taking validated domain logic and packaging it as a standalone product.</li>
           </ul>
         </div>
@@ -103,16 +120,16 @@
     </div>
   </div>
 </section>
+</div><!-- /panel-personal -->
 
-<hr class="divider" />
-
-<!-- TRACK B: Quant production -->
-<section>
+<!-- ===================== PANEL B: Fraunhofer ===================== -->
+<div id="panel-fraunhofer" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-fraunhofer" hidden>
+<section style="padding-top:26px;">
   <div class="wrap">
     <div class="reveal">
       <p class="eyebrow">Track B · Production quant research</p>
       <h2 class="section-title">Client systems at Fraunhofer ITWM</h2>
-      <p class="section-lead">Fraunhofer ITWM is Germany's largest applied-research organisation; its Mathematical Finance department builds production systems for banks, insurers, and industry — not academic prototypes. Each engagement below was delivered end to end, from data extraction through model design to deployment, in Agile teams (GitLab, Jira, CI/CD). Clients are described by sector only.</p>
+      <p class="section-lead">Fraunhofer ITWM is Germany's largest applied-research organisation; its Mathematical Finance department builds production systems for banks, insurers, and industry — not academic prototypes. Each engagement below was delivered end to end, from data extraction through model design to deployment, in Agile teams (GitLab, Jira, CI/CD). Clients are described by sector only; code is confidential.</p>
     </div>
 
     <div style="display:grid;gap:18px;margin-top:28px;">
@@ -149,38 +166,53 @@
         </ul>
       </div>
 
-      <div class="grid-2">
-        <div class="project reveal" style="grid-template-columns:1fr;">
-          <div class="meta-col">
-            <div class="pnum">B3</div>
-            <h3>Budget &amp; forecasting system</h3>
-            <div class="ctx">Insurance client · sole developer</div>
-            <div class="tags"><span class="tag">ARIMA</span><span class="tag">VAR</span><span class="tag">Clustering</span></div>
-          </div>
-          <ul>
-            <li>End-to-end forecasting pipeline for ~3,000 repair-cost time series; isolated the ~150 highest-impact via percentile-based volume filtering.</li>
-            <li>ARIMA baselines with automated ADF stationarity / differencing selection; VAR for cross-series dependencies; nested hierarchical clustering to form stable groups under a p ≪ T constraint.</li>
-            <li>Rolling and expanding-window backtesting for systematic model selection.</li>
-          </ul>
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B3</div>
+          <h3>Neural-network demand forecasting</h3>
+          <div class="ctx">Fraunhofer ITWM · weather- &amp; calendar-driven time series</div>
+          <div class="tags"><span class="tag">Neural networks</span><span class="tag">Embeddings</span><span class="tag">ARIMA baselines</span><span class="tag">Multi-horizon</span></div>
         </div>
-        <div class="project reveal" style="grid-template-columns:1fr;">
-          <div class="meta-col">
-            <div class="pnum">B4</div>
-            <h3>Cashflow &amp; liquidity modelling</h3>
-            <div class="ctx">Insurance client · co-developed</div>
-            <div class="tags"><span class="tag">Left-truncation</span><span class="tag">Nonparametric</span><span class="tag">Paper in prep.</span></div>
-          </div>
-          <ul>
-            <li>Modular cashflow framework separating loan disbursements (Auszahlung) from repayments (Rückflüsse) for forward-looking liquidity planning.</li>
-            <li>Empirical disbursement profiles by loan type; per-contract simulation of remaining outflows with prepayment risk.</li>
-            <li>Nonparametric repayment estimator handling left-truncation — joint paper in preparation.</li>
-          </ul>
+        <ul>
+          <li>Contributed to a Fraunhofer ITWM forecasting project using dense neural networks with embedding layers to encode calendar seasonality — month, weekday (including public holidays and bridge days), and hour — alongside seven meteorological variables (wind speed and direction, temperature, pressure, precipitation, radiation, CAPE).</li>
+          <li>Extended the pipeline with ARIMA baselines and applied the same approach to a separate parking-demand forecasting variant.</li>
+          <li>Worked the full pipeline end to end — feature engineering, standardisation, network training, and multi-horizon evaluation at 24 / 72 / 120-hour horizons — an approach directly relevant to weather- and seasonality-driven forecasting in energy markets.</li>
+        </ul>
+      </div>
+
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B4</div>
+          <h3>Budget &amp; forecasting system</h3>
+          <div class="ctx">Insurance client · sole developer</div>
+          <div class="tags"><span class="tag">ARIMA</span><span class="tag">VAR</span><span class="tag">Clustering</span></div>
         </div>
+        <ul>
+          <li>End-to-end forecasting pipeline for ~3,000 repair-cost time series; isolated the ~150 highest-impact via percentile-based volume filtering.</li>
+          <li>ARIMA baselines with automated ADF stationarity / differencing selection; VAR for cross-series dependencies; nested hierarchical clustering to form stable groups under a p ≪ T constraint.</li>
+          <li>Rolling and expanding-window backtesting for systematic model selection.</li>
+        </ul>
       </div>
 
       <div class="project reveal">
         <div class="meta-col">
           <div class="pnum">B5</div>
+          <h3>Loan-portfolio cashflow forecasting</h3>
+          <div class="ctx">Insurance client · co-developed · two-module simulation</div>
+          <div class="tags"><span class="tag">Survival-weighted EV</span><span class="tag">Left-truncation</span><span class="tag">Hazard models</span><span class="tag">Annuity dynamics</span><span class="tag">Paper in prep.</span></div>
+        </div>
+        <ul>
+          <li>Co-developed a two-module loan-portfolio cashflow engine — disbursements and repayments modelled separately, every parameter calibrated from historical contract data and backtested against realised cashflows per month and booking entity, across both the existing book and forecasted new business.</li>
+          <li>Payout side: built an empirical, volume-weighted payout curve indexed by months-since-commitment with an outstanding-obligation (negative-cumsum) profile; each contract's <em>remaining</em> obligation is spread along the curve tail from its current age, segmented by loan purpose (construction vs. purchase).</li>
+          <li>Repayment entry under left-truncation: estimated time-to-full-payout with a duration estimator conditioned on survival to the contract's current age (the valid comparison set is contracts still un-paid-out at that age), plus a capital-weighted payout-timing distribution for contracts with no history yet.</li>
+          <li>Repayment streams: combined a standard annuity (interest on the outstanding balance, instalment fixed on the approved amount), a deterministic seasonal model for partial prepayments, and an age-dependent hazard for full early repayment that peaks at the statutory ~10-year fixed-rate exit right observed directly in the data.</li>
+          <li>Kept the simulation tractable by replacing per-contract Monte-Carlo branching with a single expected-value trajectory weighted by a running survival probability — full-repayment cash <code>P_alive · pₙ · Sₜ</code> with survival decayed each month — and modelled prolongation (nominal-rate reset from swap rates at fixed-rate end) and expiry. Joint paper in preparation.</li>
+        </ul>
+      </div>
+
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B6</div>
           <h3>Vehicle failure prediction</h3>
           <div class="ctx">High-performance automotive OEM · survival analysis</div>
           <div class="tags"><span class="tag">Weibull</span><span class="tag">Random Survival Forests</span><span class="tag">Validity boundaries</span></div>
@@ -193,8 +225,14 @@
       </div>
 
     </div>
+  </div>
+</section>
+</div><!-- /panel-fraunhofer -->
 
-    <div class="cta-band reveal" style="margin-top:36px;">
+<!-- ===================== shared CTA ===================== -->
+<section style="padding-top:8px;">
+  <div class="wrap">
+    <div class="cta-band reveal">
       <div>
         <h2>Want the methodology behind these?</h2>
         <p>The estimation theory, time-series, and ML foundation that drives the modelling choices.</p>
@@ -216,7 +254,48 @@
     </div>
   </div>
 </footer>
+
 <script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+
+<!-- tab behaviour -->
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab-btn"));
+  if (!tabs.length) return;
+  var hashFor = { "panel-personal": "#personal", "panel-fraunhofer": "#fraunhofer" };
+
+  function activate(panelId, focusTab) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute("aria-controls") === panelId;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(t.getAttribute("aria-controls"));
+      if (!panel) return;
+      panel.hidden = !on;
+      if (on) {
+        // reveal animations don't fire on display:none panels — show them now
+        panel.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+        if (focusTab) t.focus();
+      }
+    });
+    try { history.replaceState(null, "", hashFor[panelId] || location.pathname); } catch (e) {}
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () { activate(t.getAttribute("aria-controls"), false); });
+    t.addEventListener("keydown", function (e) {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      e.preventDefault();
+      var i = tabs.indexOf(t);
+      var ni = e.key === "ArrowRight" ? (i + 1) % tabs.length : (i - 1 + tabs.length) % tabs.length;
+      activate(tabs[ni].getAttribute("aria-controls"), true);
+    });
+  });
+
+  var initial = location.hash === "#personal" ? "panel-personal" : "panel-fraunhofer";
+  activate(initial, false);
+})();
+</script>
 <script src="main.js"></script>
 </body>
 </html>
