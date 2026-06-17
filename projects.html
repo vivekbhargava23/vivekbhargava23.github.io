@@ -10,6 +10,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script>(function(){try{var t=localStorage.getItem("vb-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<style>
+/* ---- Dashboard live-preview showcase (A1 flagship) ---- */
+.dash-preview{ margin:20px 0 6px; border:1px solid var(--border); border-radius:var(--radius); background:var(--card); overflow:hidden; box-shadow:var(--shadow); }
+.dash-shot{ position:relative; display:block; line-height:0; border-bottom:1px solid var(--border); }
+.dash-shot img{ width:100%; height:auto; display:block; }
+.dash-shot::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 60%, rgba(7,11,20,.45)); opacity:0; transition:opacity var(--speed); pointer-events:none; }
+.dash-shot:hover::after{ opacity:1; }
+.dash-shot-tag{ position:absolute; top:13px; left:13px; display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim); background:color-mix(in srgb, var(--panel) 82%, transparent); border:1px solid var(--border); padding:5px 11px; border-radius:20px; backdrop-filter:blur(6px); }
+.dash-shot-open{ position:absolute; right:14px; bottom:14px; display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:600; color:#04201c; background:linear-gradient(135deg,var(--accent),var(--accent-2)); padding:8px 14px; border-radius:9px; opacity:0; transform:translateY(7px); transition:opacity var(--speed), transform var(--speed); }
+.dash-shot:hover .dash-shot-open{ opacity:1; transform:none; }
+.dash-shot-open svg{ width:15px; height:15px; }
+:root[data-theme="light"] .dash-shot-open{ color:#fff; }
+.dash-cta{ display:flex; align-items:center; justify-content:space-between; gap:20px 28px; padding:18px 22px; flex-wrap:wrap; }
+.dash-cta-text{ flex:1 1 320px; }
+.dash-cta h4{ font-size:18px; margin:0 0 6px; }
+.dash-cta p{ color:var(--text-dim); font-size:14.5px; line-height:1.55; margin:0; max-width:64ch; }
+.btn-lg{ font-size:15.5px; padding:13px 24px; border-radius:11px; white-space:nowrap; }
+.btn-lg svg{ width:18px; height:18px; }
+@media (max-width:640px){
+  .dash-cta{ flex-direction:column; align-items:flex-start; }
+  .btn-lg{ width:100%; justify-content:center; }
+  .dash-shot-open{ display:none; }
+}
+</style>
 </head>
 <body>
 
@@ -75,8 +99,6 @@
           <div class="ctx">Solo-built · Python / Streamlit · ongoing personal project</div>
           <span class="status-chip live"><span class="dot"></span>Active build</span>
           <div class="tags"><span class="tag">Clean architecture</span><span class="tag">Pydantic v2</span><span class="tag">German tax engine</span><span class="tag">Agentic AI</span></div>
-          <p style="margin-top:16px;"><a class="btn btn-primary" style="font-size:14px;padding:9px 16px;" href="dashboard.html">Open live preview (in progress)
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
           <!-- Wire-in slot: add repo link when public
           <p style="margin-top:10px;"><a href="REPLACE-REPO-URL" target="_blank" rel="noopener">View repository →</a></p>
           -->
@@ -89,6 +111,27 @@
           <li>Built and hardened a human-in-the-loop agentic-AI delivery workflow: a chat surface drafts schema-compliant tickets; a CLI implementation agent executes one ticket per branch/PR with deterministic state transitions tied to GitHub Issues; branch protection forces PR-only merges.</li>
         </ul>
       </div>
+
+      <!-- ===== Dashboard live-preview showcase ===== -->
+      <figure class="dash-preview reveal">
+        <a class="dash-shot" href="dashboard.html" aria-label="Open the interactive Investment Panel dashboard preview">
+          <img src="dashboard-preview.jpg" width="1600" height="1025" loading="lazy"
+               alt="Investment Panel dashboard — Live Overview showing portfolio value, unrealised P&amp;L, a live positions table with sparklines, and a thesis-exposure breakdown." />
+          <span class="dash-shot-tag"><span class="dot"></span>Live Overview · interactive preview</span>
+          <span class="dash-shot-open">Click to open
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M21 14v7H3V3h7"/></svg>
+          </span>
+        </a>
+        <figcaption class="dash-cta">
+          <div class="dash-cta-text">
+            <h4>See the Investment Panel in action</h4>
+            <p>A fully interactive, browser-native preview of the live dashboard — Live Overview, lot ledger, FX-aware performance, the German tax dashboard, and decision gates. Nothing to install — it opens right in your browser.</p>
+          </div>
+          <a class="btn btn-primary btn-lg" href="dashboard.html">Open the interactive dashboard
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </figcaption>
+      </figure>
 
       <div class="grid-2">
         <div class="project reveal" style="grid-template-columns:1fr;">
