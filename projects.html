@@ -33,6 +33,23 @@
   .btn-lg{ width:100%; justify-content:center; }
   .dash-shot-open{ display:none; }
 }
+/* ---- Signature feature: highlighted multi-agent persona block ---- */
+.dash-feature{ position:relative; border:1.5px solid transparent;
+  background:linear-gradient(var(--card),var(--card)) padding-box,
+            linear-gradient(135deg,var(--accent),var(--accent-2)) border-box;
+  box-shadow:0 0 0 1px var(--accent-soft), 0 26px 64px -30px rgba(0,0,0,.75); }
+.dash-feature::before{ content:""; position:absolute; inset:0; border-radius:inherit;
+  background:radial-gradient(78% 120% at 50% -12%, var(--accent-soft), transparent 62%); pointer-events:none; z-index:0; }
+.dash-feature > *{ position:relative; z-index:1; }
+.dash-feature-head{ padding:22px 24px 6px; }
+.dash-feature-head .eyebrow{ margin-bottom:11px; }
+.dash-feature-head .eyebrow .star{ width:14px; height:14px; vertical-align:-2px; }
+.dash-feature-head h4{ font-size:22px; margin:0 0 9px; letter-spacing:-.02em; }
+.dash-feature-head p{ color:var(--text-dim); font-size:15px; line-height:1.62; margin:0; max-width:78ch; }
+.dash-feature .dash-shot{ border-top:1px solid var(--border); margin-top:16px; }
+.dash-feature .personas{ display:flex; flex-wrap:wrap; gap:7px; margin:14px 0 2px; }
+.dash-feature .persona{ font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim);
+  background:var(--accent-soft); border:1px solid var(--accent-line); padding:4px 10px; border-radius:20px; }
 </style>
 </head>
 <body>
@@ -126,6 +143,35 @@
           <div class="dash-cta-text">
             <h4>See the Investment Panel in action</h4>
             <p>A fully interactive, browser-native preview of the live dashboard — Live Overview, lot ledger, FX-aware performance, the German tax dashboard, and decision gates. Nothing to install — it opens right in your browser.</p>
+          </div>
+          <a class="btn btn-primary btn-lg" href="dashboard.html">Open the interactive dashboard
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </figcaption>
+      </figure>
+
+      <!-- ===== Signature feature: multi-agent persona research engine ===== -->
+      <figure class="dash-preview dash-feature reveal">
+        <figcaption class="dash-feature-head">
+          <p class="eyebrow"><svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>Signature · agentic AI</p>
+          <h4>A multi-agent persona research engine</h4>
+          <p>The platform's most distinctive layer: seven specialised agents independently argue a position, vote, and write a single source-grounded consensus with explicit facts, dates, and tripwires. Every run is committed to an auditable behavioural ledger — so research decisions are traceable and reviewable, not vibes.</p>
+          <div class="personas">
+            <span class="persona">Macro</span><span class="persona">Technical</span><span class="persona">Fundamentals</span><span class="persona">Risk Officer</span><span class="persona">Flow Tracker</span><span class="persona">Thesis Keeper</span><span class="persona">Devil's Advocate</span>
+          </div>
+        </figcaption>
+        <a class="dash-shot" href="dashboard.html" aria-label="Open the multi-agent Behavioural Ledger in the dashboard">
+          <img src="dashboard-agents.jpg" width="1600" height="1945" loading="lazy"
+               alt="Behavioural Ledger — a seven-persona multi-agent research run for NVDA showing the consensus vote, bull/base/bear scenarios, key facts, dates and risks, and the full agent transcript." />
+          <span class="dash-shot-tag"><span class="dot"></span>Behavioural Ledger · 7-agent consensus</span>
+          <span class="dash-shot-open">Click to open
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M21 14v7H3V3h7"/></svg>
+          </span>
+        </a>
+        <figcaption class="dash-cta">
+          <div class="dash-cta-text">
+            <h4>Open the multi-agent ledger</h4>
+            <p>Walk a full research run end to end — debate, scenarios, per-agent price targets, and the logged consensus that comes out of it.</p>
           </div>
           <a class="btn btn-primary btn-lg" href="dashboard.html">Open the interactive dashboard
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
