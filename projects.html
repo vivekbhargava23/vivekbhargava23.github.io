@@ -87,7 +87,7 @@
     <div class="tabbar" role="tablist" aria-label="Project categories">
       <button class="tab-btn" id="tab-btn-fraunhofer" role="tab" aria-controls="panel-fraunhofer" aria-selected="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg>
-        <span>Fraunhofer<span class="seg-long"> ITWM · client systems</span></span> <span class="tcount">6</span>
+        <span>Fraunhofer<span class="seg-long"> ITWM · client systems</span></span> <span class="tcount">7</span>
       </button>
       <button class="tab-btn" id="tab-btn-personal" role="tab" aria-controls="panel-personal" aria-selected="false" tabindex="-1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg>
@@ -310,6 +310,21 @@
           <li>Developed survival models on ~108,000 vehicle records (~13,000 observed failures): a Weibull parametric baseline for hazard estimation, extended with Random Survival Forests to capture nonlinear covariate effects without imposing proportional hazards.</li>
           <li>Documented model validity boundaries — RSF survival probability flattens beyond ~1,300 days — to prevent overconfident extrapolation.</li>
           <li>Communicated uncertainty and limits to engineering and risk stakeholders for responsible use in warranty and service decisions.</li>
+        </ul>
+      </div>
+
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B7</div>
+          <h3>Warranty-claim anomaly detection</h3>
+          <div class="ctx">High-performance automotive OEM · supervised + unsupervised ensemble</div>
+          <div class="tags"><span class="tag">Anomaly detection</span><span class="tag">Ensemble stacking</span><span class="tag">Isolation Forest</span><span class="tag">Weak / partial labels</span><span class="tag">Distribution shift</span><span class="tag">Reproducible pipeline</span></div>
+        </div>
+        <ul>
+          <li>Architected a five-model anomaly-detection ensemble fusing supervised learners (random forest, feed-forward neural net, gradient-boosted trees) with unsupervised detectors (group-conditional Z-score, Isolation Forest), reconciled by an L<sub>2</sub> linear-stacking meta-learner fitted on out-of-sample base scores.</li>
+          <li>Resolved a temporal label-decay / covariate-shift regime by confining supervised estimation to the densely-audited window while delegating out-of-window detection to the unsupervised models, whose reference statistics — cohort moments and isolation path-length — re-estimate without labels.</li>
+          <li>Engineered a weak-supervision labelling layer fusing audit recoveries, booking-correction pairs, and reviewed lists; anchored the empirical class prior to the audited source and propagated it through ratio equalisation and a fit-time representativeness filter held out of population scoring.</li>
+          <li>Productionised as a file-mediated train/score decoupling — fit-once, score-forever — over a relational claim schema aggregated to claim grain, with type-safe composite-key joins, regression-tested transforms, and a distributional guardrail (score-range, mean, and volume invariants) gating the HANA write.</li>
         </ul>
       </div>
 
