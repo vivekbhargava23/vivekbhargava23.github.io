@@ -11,6 +11,16 @@
 <link rel="stylesheet" href="style.css" />
 <script>(function(){try{var t=localStorage.getItem("vb-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <style>
+/* ---- Standing / credibility band ---- */
+.creds{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.cred{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px 20px;
+  border-top:2px solid var(--accent); transition:background var(--speed), border-color var(--speed); }
+.cred:hover{ background:var(--card-hover); }
+.cred .ct{ font-size:17px; font-weight:600; line-height:1.35; letter-spacing:-.015em; color:var(--text); }
+.cred .cl{ color:var(--muted); font-size:13.5px; line-height:1.6; margin-top:8px; }
+@media (max-width:940px){ .creds{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .creds{ grid-template-columns:1fr; } }
+
 /* ---- Areas of expertise ---- */
 .areas{ margin:0; display:grid; gap:0; border-top:1px solid var(--border); }
 .areas .area{ display:grid; grid-template-columns:minmax(210px,1fr) 3fr; gap:10px 34px;
@@ -87,13 +97,25 @@
   </div>
 </section>
 
-<!-- STATS -->
+<!-- STANDING -->
 <section class="section-tight">
-  <div class="wrap stats">
-    <div class="stat reveal"><div class="num">7</div><div class="lbl">Client systems delivered at Fraunhofer ITWM</div></div>
-    <div class="stat reveal"><div class="num">~5.7M</div><div class="lbl">Warranty claims scored by a system in production</div></div>
-    <div class="stat reveal"><div class="num">30+</div><div class="lbl">Risk metrics at full numerical parity, in daily use</div></div>
-    <div class="stat reveal"><div class="num">~3,000</div><div class="lbl">Cost series in a live forecasting system</div></div>
+  <div class="wrap creds">
+    <div class="cred reveal">
+      <div class="ct">Lead, architect or sole developer</div>
+      <div class="cl">on client systems at Fraunhofer ITWM, Germany's largest applied-research organisation.</div>
+    </div>
+    <div class="cred reveal">
+      <div class="ct">In daily production use</div>
+      <div class="cl">at a Luxembourg bank, a major German insurer, and a premium automotive manufacturer.</div>
+    </div>
+    <div class="cred reveal">
+      <div class="ct">Accountable end to end</div>
+      <div class="cl">problem framing, model design, validation, deployment — and the handover after.</div>
+    </div>
+    <div class="cred reveal">
+      <div class="ct">Sets the bar for others</div>
+      <div class="cl">scopes work packages for research assistants, reviews their merge requests, owns the merge.</div>
+    </div>
   </div>
 </section>
 
