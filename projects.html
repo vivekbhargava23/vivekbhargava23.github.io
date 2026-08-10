@@ -22,6 +22,9 @@
 .ailab-teaser p{ color:var(--text-dim); font-size:14.5px; line-height:1.55; margin:0; max-width:66ch; }
 .ailab-teaser .btn{ white-space:nowrap; }
 @media (max-width:640px){ .ailab-teaser{ flex-direction:column; align-items:flex-start; } .ailab-teaser .btn{ width:100%; justify-content:center; } }
+/* "My part" contribution line inside a team project */
+.project li.contrib{ list-style:none; margin-left:-1.15em; padding:10px 0 10px 13px; border-left:3px solid var(--accent); background:linear-gradient(90deg,var(--accent-soft),transparent 70%); border-radius:0 6px 6px 0; }
+.project li.contrib strong{ color:var(--text); font-weight:600; }
 </style>
 </head>
 <body>
@@ -87,17 +90,17 @@
 
       <div class="project reveal">
         <div class="meta-col">
-          <div class="pnum">B2 · lead</div>
+          <div class="pnum">B2 · team</div>
           <h3>Strategic asset allocation &amp; decision support</h3>
-          <div class="ctx">German life insurer · multi-criteria optimisation</div>
-          <span class="status-chip live"><span class="dot"></span>Live in production</span>
-          <div class="tags"><span class="tag">4-objective Pareto</span><span class="tag">Tchebycheff</span><span class="tag">R Shiny</span></div>
+          <div class="ctx">Major German mutual insurer · multi-criteria optimisation</div>
+          <span class="status-chip live"><span class="dot"></span>In operative use</span>
+          <div class="tags"><span class="tag">26 asset classes</span><span class="tag">Pareto frontier</span><span class="tag">Tchebycheff</span><span class="tag">Solvency II</span><span class="tag">R Shiny</span></div>
         </div>
         <ul>
-          <li>Built a strategic asset allocation framework using multi-criteria optimisation across 26 asset classes for an insurance balance sheet, balancing four competing objectives: expected return, volatility, Solvency II regulatory-capital ratio, and L1-norm transaction cost.</li>
-          <li>Applied Weighted Tchebycheff scalarisation with a hyperbox decomposition to generate well-distributed Pareto-optimal portfolios.</li>
-          <li>Owned the R Shiny decision-support layer — radar plots, constraint sliders, Pareto scenario filtering — for transparent exploration of trade-offs across market and regulatory scenarios.</li>
-          <li>Built the feeding data pipeline, including regulatory-capital and HGB/IFRS accounting outputs, integrated with stakeholder-facing explanations for human-in-the-loop decisions.</li>
+          <li>A multi-criteria strategic asset allocation system in operative use at a major German insurer, built and maintained by a Fraunhofer team over several years. It distributes an insurance balance sheet across 26 asset classes and returns Pareto-efficient compromise portfolios rather than a single optimum — the final allocation stays a human business decision.</li>
+          <li>Up to ten selectable objectives — expected return, volatility, Solvency II ratio, transaction volume, distance from the previous three-year allocation, HGB and IFRS results, FX exposure, illiquidity, and non-investment-grade exposure — optimised under one-year and three-year implementation-feasibility constraints, so portfolios that cannot actually be reached within the horizon are excluded rather than recommended.</li>
+          <li>Polyglot production stack: a Java optimisation core with a C/NLOpt solver, Python calibration and sensitivity analysis, an R Shiny front end, PostgreSQL persistence, and containerised deployment under GitLab CI.</li>
+          <li class="contrib"><strong>My part:</strong> I own the R Shiny decision-support layer — radar plots, constraint sliders, Pareto scenario filtering — and the feeding data pipeline, including the regulatory-capital and HGB/IFRS accounting outputs, so stakeholders can explore trade-offs across market and regulatory scenarios themselves.</li>
         </ul>
       </div>
 
@@ -119,13 +122,13 @@
         <div class="meta-col">
           <div class="pnum">B4</div>
           <h3>Budget &amp; forecasting system</h3>
-          <div class="ctx">Insurance client · sole developer</div>
-          <div class="tags"><span class="tag">ARIMA</span><span class="tag">VAR</span><span class="tag">Clustering</span></div>
+          <div class="ctx">German premium sports-car manufacturer · sole developer</div>
+          <div class="tags"><span class="tag">ARIMA</span><span class="tag">VAR · VARIMA</span><span class="tag">Hierarchical clustering</span><span class="tag">Diebold–Mariano</span></div>
         </div>
         <ul>
-          <li>End-to-end forecasting pipeline for ~3,000 repair-cost time series; isolated the ~150 highest-impact via percentile-based volume filtering.</li>
-          <li>ARIMA baselines with automated ADF stationarity / differencing selection; VAR for cross-series dependencies; nested hierarchical clustering to form stable groups under a p ≪ T constraint.</li>
-          <li>Rolling and expanding-window backtesting for systematic model selection.</li>
+          <li>Sole developer of an end-to-end forecasting system over ~3,000 cost time series, with percentile-based volume filtering isolating the ~150 that drive the budget.</li>
+          <li>Grouped correlated series by nested hierarchical clustering with cluster-size control, so multivariate models estimate on well-conditioned covariance structures instead of the full sparse cross-section — estimation-risk control under p ≪ T.</li>
+          <li>Selected between univariate (darts regression forecasters, ARIMA with automated ADF stationarity and differencing selection) and multivariate (VAR, VARIMA) specifications using rolling and expanding-window backtests with Diebold–Mariano tests. Owned it from data extraction to forecast delivery.</li>
         </ul>
       </div>
 
@@ -133,7 +136,7 @@
         <div class="meta-col">
           <div class="pnum">B5</div>
           <h3>Loan-portfolio cashflow forecasting</h3>
-          <div class="ctx">Insurance client · co-developed · two-module simulation</div>
+          <div class="ctx">Major German mutual insurer · co-developed · two-module simulation</div>
           <div class="tags"><span class="tag">Survival-weighted EV</span><span class="tag">Left-truncation</span><span class="tag">Hazard models</span><span class="tag">Annuity dynamics</span><span class="tag">Paper in prep.</span></div>
         </div>
         <ul>
