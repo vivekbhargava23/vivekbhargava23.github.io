@@ -4,52 +4,24 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Projects — Vivek Bhargava</title>
-<meta name="description" content="Production quant systems at Fraunhofer ITWM and a solo-built AI-augmented investment-analytics platform." />
+<meta name="description" content="Seven production quant systems delivered for banks, insurers, and industrial clients at Fraunhofer ITWM." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script>(function(){try{var t=localStorage.getItem("vb-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<script>if(location.hash==="#personal"){location.replace("ailab.html");}</script>
 <style>
-/* ---- Dashboard live-preview showcase (A1 flagship) ---- */
-.dash-preview{ margin:20px 0 6px; border:1px solid var(--border); border-radius:var(--radius); background:var(--card); overflow:hidden; box-shadow:var(--shadow); }
-.dash-shot{ position:relative; display:block; line-height:0; border-bottom:1px solid var(--border); }
-.dash-shot img{ width:100%; height:auto; display:block; }
-.dash-shot::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 60%, rgba(7,11,20,.45)); opacity:0; transition:opacity var(--speed); pointer-events:none; }
-.dash-shot:hover::after{ opacity:1; }
-.dash-shot-tag{ position:absolute; top:13px; left:13px; display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim); background:color-mix(in srgb, var(--panel) 82%, transparent); border:1px solid var(--border); padding:5px 11px; border-radius:20px; backdrop-filter:blur(6px); }
-.dash-shot-open{ position:absolute; right:14px; bottom:14px; display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:600; color:#04201c; background:linear-gradient(135deg,var(--accent),var(--accent-2)); padding:8px 14px; border-radius:9px; opacity:0; transform:translateY(7px); transition:opacity var(--speed), transform var(--speed); }
-.dash-shot:hover .dash-shot-open{ opacity:1; transform:none; }
-.dash-shot-open svg{ width:15px; height:15px; }
-:root[data-theme="light"] .dash-shot-open{ color:#fff; }
-.dash-cta{ display:flex; align-items:center; justify-content:space-between; gap:20px 28px; padding:18px 22px; flex-wrap:wrap; }
-.dash-cta-text{ flex:1 1 320px; }
-.dash-cta h4{ font-size:18px; margin:0 0 6px; }
-.dash-cta p{ color:var(--text-dim); font-size:14.5px; line-height:1.55; margin:0; max-width:64ch; }
-.btn-lg{ font-size:15.5px; padding:13px 24px; border-radius:11px; white-space:nowrap; }
-.btn-lg svg{ width:18px; height:18px; }
-@media (max-width:640px){
-  .dash-cta{ flex-direction:column; align-items:flex-start; }
-  .btn-lg{ width:100%; justify-content:center; }
-  .dash-shot-open{ display:none; }
-}
-/* ---- Signature feature: highlighted multi-agent persona block ---- */
-.dash-feature{ position:relative; border:1.5px solid transparent;
+/* AI Lab teaser banner */
+.ailab-teaser{ position:relative; display:flex; align-items:center; justify-content:space-between; gap:18px 28px; flex-wrap:wrap;
+  border:1.5px solid transparent; border-radius:var(--radius); padding:20px 24px; margin-top:26px;
   background:linear-gradient(var(--card),var(--card)) padding-box,
             linear-gradient(135deg,var(--accent),var(--accent-2)) border-box;
-  box-shadow:0 0 0 1px var(--accent-soft), 0 26px 64px -30px rgba(0,0,0,.75); }
-.dash-feature::before{ content:""; position:absolute; inset:0; border-radius:inherit;
-  background:radial-gradient(78% 120% at 50% -12%, var(--accent-soft), transparent 62%); pointer-events:none; z-index:0; }
-.dash-feature > *{ position:relative; z-index:1; }
-.dash-feature-head{ padding:22px 24px 6px; }
-.dash-feature-head .eyebrow{ margin-bottom:11px; }
-.dash-feature-head .eyebrow .star{ width:14px; height:14px; vertical-align:-2px; }
-.dash-feature-head h4{ font-size:22px; margin:0 0 9px; letter-spacing:-.02em; }
-.dash-feature-head p{ color:var(--text-dim); font-size:15px; line-height:1.62; margin:0; max-width:78ch; }
-.dash-feature .dash-shot{ border-top:1px solid var(--border); margin-top:16px; }
-.dash-feature .personas{ display:flex; flex-wrap:wrap; gap:7px; margin:14px 0 2px; }
-.dash-feature .persona{ font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim);
-  background:var(--accent-soft); border:1px solid var(--accent-line); padding:4px 10px; border-radius:20px; }
+  box-shadow:0 0 0 1px var(--accent-soft); }
+.ailab-teaser h3{ font-size:18px; margin:0 0 5px; }
+.ailab-teaser p{ color:var(--text-dim); font-size:14.5px; line-height:1.55; margin:0; max-width:66ch; }
+.ailab-teaser .btn{ white-space:nowrap; }
+@media (max-width:640px){ .ailab-teaser{ flex-direction:column; align-items:flex-start; } .ailab-teaser .btn{ width:100%; justify-content:center; } }
 </style>
 </head>
 <body>
@@ -61,6 +33,7 @@
       <a href="index.html">Home</a>
       <a href="expertise.html">Expertise</a>
       <a href="projects.html" class="active">Projects</a>
+      <a href="ailab.html">AI Lab</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a class="nav-cta" href="CV_Vivek_Bhargava.pdf" target="_blank" rel="noopener">Download CV</a>
@@ -75,153 +48,26 @@
 
 <section class="hero" style="padding-bottom:20px;">
   <div class="wrap reveal">
-    <p class="eyebrow">Projects</p>
+    <p class="eyebrow">Projects · Fraunhofer ITWM</p>
     <h1 style="font-size:clamp(30px,4.6vw,50px);">Systems that left the notebook.</h1>
-    <p class="section-lead" style="margin-top:18px;font-size:18px;">Two tracks. On one side, a personal platform where I push modern software practice and human-in-the-loop AI delivery as far as I can take them. On the other, production quantitative systems delivered for banks, insurers, and industrial clients during my time at Fraunhofer ITWM (client code is confidential, described by sector only).</p>
-  </div>
-</section>
+    <p class="section-lead" style="margin-top:18px;font-size:18px;">Production quantitative systems delivered for banks, insurers, and industrial clients during my time at Fraunhofer ITWM — Germany's largest applied-research organisation. Each engagement was delivered end to end, from data extraction through model design to deployment, in Agile teams (GitLab, Jira, CI/CD). Clients are described by sector only; code is confidential.</p>
 
-<!-- ===================== TABS ===================== -->
-<section style="padding-top:6px;padding-bottom:0;">
-  <div class="wrap" style="text-align:center;">
-    <div class="tabbar" role="tablist" aria-label="Project categories">
-      <button class="tab-btn" id="tab-btn-fraunhofer" role="tab" aria-controls="panel-fraunhofer" aria-selected="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg>
-        <span>Fraunhofer<span class="seg-long"> ITWM · client systems</span></span> <span class="tcount">7</span>
-      </button>
-      <button class="tab-btn" id="tab-btn-personal" role="tab" aria-controls="panel-personal" aria-selected="false" tabindex="-1">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg>
-        <span><span class="seg-long">Personal &amp; </span>applied AI</span> <span class="tcount">3</span>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== PANEL A: Personal / AI ===================== -->
-<div id="panel-personal" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-personal">
-<section style="padding-top:26px;">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">Track A · Builder / applied AI</p>
-      <h2 class="section-title">Personal engineering &amp; AI work</h2>
-      <p class="section-lead">Greenfield, solo-built, and deliberately over-engineered to production standards as a proving ground. These are mine — open and linkable.</p>
-    </div>
-
-    <div style="display:grid;gap:18px;margin-top:28px;">
-
-      <div class="project reveal">
-        <div class="meta-col">
-          <div class="pnum">A1 · flagship</div>
-          <h3>AI-Augmented Investment Analytics Platform</h3>
-          <div class="ctx">Solo-built · Python / Streamlit · ongoing personal project</div>
-          <span class="status-chip live"><span class="dot"></span>Active build</span>
-          <div class="tags"><span class="tag">Clean architecture</span><span class="tag">Pydantic v2</span><span class="tag">German tax engine</span><span class="tag">Agentic AI</span></div>
-          <!-- Wire-in slot: add repo link when public
-          <p style="margin-top:10px;"><a href="REPLACE-REPO-URL" target="_blank" rel="noopener">View repository →</a></p>
-          -->
-        </div>
-        <ul>
-          <li>A personal investment-analytics platform on a four-layer clean architecture — UI, services, domain, ports &amp; adapters — with a zero-I/O domain layer enforced by import-boundary linting in CI and strictly typed boundaries via Pydantic v2.</li>
-          <li>Domain layer includes a German FIFO capital-gains tax engine implementing the flat-rate investment-income tax, the annual saver's tax-free allowance, and loss-offset carry-forward buckets — unit-tested against hand-calculated references — plus a pre-trade simulator computing exact lot consumption and tax impact before a trade.</li>
-          <li>Multi-source data layer composes market-data APIs, FX feeds, and broker CSV imports through adapter/composite patterns, with TTL caching and ISIN-to-ticker resolution; FX-aware EUR-native valuation with correlation, concentration, and performance analytics.</li>
-          <li>Shipped as 70+ tickets across 7 milestones with an 867-test regression suite; CI runs tests, type-checking, and architecture-boundary linting on every PR.</li>
-          <li>Built and hardened a human-in-the-loop agentic-AI delivery workflow: a chat surface drafts schema-compliant tickets; a CLI implementation agent executes one ticket per branch/PR with deterministic state transitions tied to GitHub Issues; branch protection forces PR-only merges.</li>
-        </ul>
+    <div class="ailab-teaser reveal">
+      <div>
+        <h3>Looking for my AI &amp; personal engineering work?</h3>
+        <p>The solo-built AI-augmented investment platform, the seven-agent research engine, and the interactive dashboard now live on their own page.</p>
       </div>
-
-      <!-- ===== Dashboard live-preview showcase ===== -->
-      <figure class="dash-preview reveal">
-        <a class="dash-shot" href="dashboard.html" aria-label="Open the interactive Investment Panel dashboard preview">
-          <img src="dashboard-preview.jpg" width="1600" height="1025" loading="lazy"
-               alt="Investment Panel dashboard — Live Overview showing portfolio value, unrealised P&amp;L, a live positions table with sparklines, and a thesis-exposure breakdown." />
-          <span class="dash-shot-tag"><span class="dot"></span>Live Overview · interactive preview</span>
-          <span class="dash-shot-open">Click to open
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M21 14v7H3V3h7"/></svg>
-          </span>
-        </a>
-        <figcaption class="dash-cta">
-          <div class="dash-cta-text">
-            <h4>See the Investment Panel in action</h4>
-            <p>A fully interactive, browser-native preview of the live dashboard — Live Overview, lot ledger, FX-aware performance, the German tax dashboard, and decision gates. Nothing to install — it opens right in your browser.</p>
-          </div>
-          <a class="btn btn-primary btn-lg" href="dashboard.html">Open the interactive dashboard
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </figcaption>
-      </figure>
-
-      <!-- ===== Signature feature: multi-agent persona research engine ===== -->
-      <figure class="dash-preview dash-feature reveal">
-        <figcaption class="dash-feature-head">
-          <p class="eyebrow"><svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>Signature · agentic AI</p>
-          <h4>A multi-agent persona research engine</h4>
-          <p>The platform's most distinctive layer: seven specialised agents independently argue a position, vote, and write a single source-grounded consensus with explicit facts, dates, and tripwires. Every run is committed to an auditable behavioural ledger — so research decisions are traceable and reviewable, not vibes.</p>
-          <div class="personas">
-            <span class="persona">Macro</span><span class="persona">Technical</span><span class="persona">Fundamentals</span><span class="persona">Risk Officer</span><span class="persona">Flow Tracker</span><span class="persona">Thesis Keeper</span><span class="persona">Devil's Advocate</span>
-          </div>
-        </figcaption>
-        <a class="dash-shot" href="dashboard.html" aria-label="Open the multi-agent Behavioural Ledger in the dashboard">
-          <img src="dashboard-agents.jpg" width="1600" height="1945" loading="lazy"
-               alt="Behavioural Ledger — a seven-persona multi-agent research run for NVDA showing the consensus vote, bull/base/bear scenarios, key facts, dates and risks, and the full agent transcript." />
-          <span class="dash-shot-tag"><span class="dot"></span>Behavioural Ledger · 7-agent consensus</span>
-          <span class="dash-shot-open">Click to open
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M21 14v7H3V3h7"/></svg>
-          </span>
-        </a>
-        <figcaption class="dash-cta">
-          <div class="dash-cta-text">
-            <h4>Open the multi-agent ledger</h4>
-            <p>Walk a full research run end to end — debate, scenarios, per-agent price targets, and the logged consensus that comes out of it.</p>
-          </div>
-          <a class="btn btn-primary btn-lg" href="dashboard.html">Open the interactive dashboard
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </figcaption>
-      </figure>
-
-      <div class="grid-2">
-        <div class="project reveal" style="grid-template-columns:1fr;">
-          <div class="meta-col">
-            <div class="pnum">A2</div>
-            <h3>German tax-report tool (Steuer-KAP)</h3>
-            <div class="ctx">Spin-out of the dashboard tax engine</div>
-            <span class="status-chip wip"><span class="dot"></span>In progress</span>
-          </div>
-          <ul>
-            <li>A focused tool that turns broker data into German capital-income tax reporting, building on the dashboard's FIFO / flat-rate-tax logic.</li>
-            <li>The monetisation experiment — taking validated domain logic and packaging it as a standalone product.</li>
-          </ul>
-        </div>
-        <div class="project reveal" style="grid-template-columns:1fr;">
-          <div class="meta-col">
-            <div class="pnum">A3</div>
-            <h3>Investment Panel</h3>
-            <div class="ctx">Multi-expert AI research / epistemics engine</div>
-            <span class="status-chip concept"><span class="dot"></span>Concept</span>
-          </div>
-          <ul>
-            <li>A concept for a multi-expert AI research engine: several specialised agents debate a thesis, surface disagreement, and produce a reasoned, source-grounded view rather than a single opaque answer.</li>
-            <li>An exploration of epistemics and human-in-the-loop orchestration for investment research.</li>
-          </ul>
-        </div>
-      </div>
-
+      <a class="btn btn-primary" href="ailab.html">Visit the AI Lab
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
 </section>
-</div><!-- /panel-personal -->
 
-<!-- ===================== PANEL B: Fraunhofer ===================== -->
-<div id="panel-fraunhofer" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-fraunhofer" hidden>
-<section style="padding-top:26px;">
+<section style="padding-top:14px;">
   <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">Track B · Production quant research</p>
-      <h2 class="section-title">Client systems at Fraunhofer ITWM</h2>
-      <p class="section-lead">Fraunhofer ITWM is Germany's largest applied-research organisation; its Mathematical Finance department builds production systems for banks, insurers, and industry — not academic prototypes. Each engagement below was delivered end to end, from data extraction through model design to deployment, in Agile teams (GitLab, Jira, CI/CD). Clients are described by sector only; code is confidential.</p>
-    </div>
 
-    <div style="display:grid;gap:18px;margin-top:28px;">
+    <div style="display:grid;gap:18px;">
 
       <div class="project reveal">
         <div class="meta-col">
@@ -331,7 +177,6 @@
     </div>
   </div>
 </section>
-</div><!-- /panel-fraunhofer -->
 
 <!-- ===================== shared CTA ===================== -->
 <section style="padding-top:8px;">
@@ -354,52 +199,13 @@
     <div class="footer-links">
       <a href="mailto:viv.bhargav@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/vivek-bhargava-431b4561" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/vivekbhargava23" target="_blank" rel="noopener">GitHub</a>
       <a href="CV_Vivek_Bhargava.pdf" target="_blank" rel="noopener">CV</a>
     </div>
   </div>
 </footer>
 
 <script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
-
-<!-- tab behaviour -->
-<script>
-(function () {
-  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab-btn"));
-  if (!tabs.length) return;
-  var hashFor = { "panel-personal": "#personal", "panel-fraunhofer": "#fraunhofer" };
-
-  function activate(panelId, focusTab) {
-    tabs.forEach(function (t) {
-      var on = t.getAttribute("aria-controls") === panelId;
-      t.setAttribute("aria-selected", on ? "true" : "false");
-      t.tabIndex = on ? 0 : -1;
-      var panel = document.getElementById(t.getAttribute("aria-controls"));
-      if (!panel) return;
-      panel.hidden = !on;
-      if (on) {
-        // reveal animations don't fire on display:none panels — show them now
-        panel.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
-        if (focusTab) t.focus();
-      }
-    });
-    try { history.replaceState(null, "", hashFor[panelId] || location.pathname); } catch (e) {}
-  }
-
-  tabs.forEach(function (t) {
-    t.addEventListener("click", function () { activate(t.getAttribute("aria-controls"), false); });
-    t.addEventListener("keydown", function (e) {
-      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
-      e.preventDefault();
-      var i = tabs.indexOf(t);
-      var ni = e.key === "ArrowRight" ? (i + 1) % tabs.length : (i - 1 + tabs.length) % tabs.length;
-      activate(tabs[ni].getAttribute("aria-controls"), true);
-    });
-  });
-
-  var initial = location.hash === "#personal" ? "panel-personal" : "panel-fraunhofer";
-  activate(initial, false);
-})();
-</script>
 <script src="main.js"></script>
 </body>
 </html>

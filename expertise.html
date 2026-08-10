@@ -3,13 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Technical Depth — Vivek Bhargava</title>
-<meta name="description" content="The econometrics, time-series, financial-econometrics and machine-learning foundation behind Vivek Bhargava's quant work — including methods implemented from scratch." />
+<title>Expertise — Vivek Bhargava</title>
+<meta name="description" content="The econometric, time-series, and machine-learning methods behind Vivek Bhargava's production quant work — and where each has shipped." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script>(function(){try{var t=localStorage.getItem("vb-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<style>
+.pillar .used-in{ font-size:13.5px; line-height:1.55; color:var(--text-dim); border-left:3px solid var(--accent); padding:2px 0 2px 12px; margin:12px 0 4px; }
+.pillar .used-in strong{ color:var(--text); font-weight:600; }
+.pillar .used-in a{ white-space:nowrap; }
+</style>
 </head>
 <body>
 
@@ -20,6 +25,7 @@
       <a href="index.html">Home</a>
       <a href="expertise.html" class="active">Expertise</a>
       <a href="projects.html">Projects</a>
+      <a href="ailab.html">AI Lab</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a class="nav-cta" href="CV_Vivek_Bhargava.pdf" target="_blank" rel="noopener">Download CV</a>
@@ -35,16 +41,11 @@
 <!-- INTRO -->
 <section class="hero" style="padding-bottom:30px;">
   <div class="wrap reveal">
-    <p class="eyebrow">Technical depth</p>
+    <p class="eyebrow">Expertise</p>
     <h1 style="font-size:clamp(30px,4.6vw,50px);">Foundations, not just frameworks.</h1>
     <p class="section-lead" style="margin-top:18px;font-size:18px;">
-      My M.Sc. Economics at the University of Konstanz (Econometrics specialisation, overall grade 1.7) was a deliberate progression rather than a set of disconnected courses — each phase building on the last, from estimation theory to deployed models. The detail below is drawn directly from that coursework, its assignments, and code I wrote from first principles. The point isn't the length of the list; it's that I can derive and implement these methods, reason about when they break, and choose between them on the merits.
+      Almost every method below has shipped in a production system — a bank's risk engine, an insurer's allocation framework, an automotive anomaly pipeline — or was implemented from scratch during my econometrics training. I can derive these methods, reason about when they break, and choose between them on the merits, because I've had to do all three under delivery pressure.
     </p>
-    <div class="tags" style="margin-top:18px;">
-      <span class="tag">Begabtenstipendium 2021 (merit scholarship)</span>
-      <span class="tag neutral">Teaching Assistant: Machine Learning · Probability & Statistical Inference</span>
-      <span class="tag neutral">Research Assistant: statistical learning theory</span>
-    </div>
   </div>
 </section>
 
@@ -52,9 +53,8 @@
 <section style="padding-top:10px;">
   <div class="wrap">
     <div class="reveal">
-      <p class="eyebrow">The Konstanz progression</p>
-      <h2 class="section-title">Four pillars of quantitative training</h2>
-      <p class="section-lead">Four graduate courses, each taken to the point of implementation. Together they span the arc from estimation theory to deployed statistical learning.</p>
+      <h2 class="section-title">Four pillars, each tied to delivered work</h2>
+      <p class="section-lead">The methodological base, with pointers to the projects where each area earned its keep.</p>
     </div>
 
     <div class="grid-2" style="margin-top:30px;">
@@ -63,20 +63,12 @@
       <div class="pillar reveal">
         <div class="pillar-head">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V5M4 19h16M8 16l3-5 3 3 4-7"/></svg></div>
-          <div><h3>Estimation theory &amp; inference</h3><div class="src">Advanced Econometrics</div></div>
+          <div><h3>Estimation theory &amp; inference</h3><div class="src">Why a method is right — not just how to run it</div></div>
         </div>
-        <p class="desc">The estimator zoo and the asymptotics that justify it — the layer that decides <em>why</em> a method is the right one, not just how to run it.</p>
-        <div class="topic-group"><div class="tg-title">Estimators</div><div class="chips">
-          <span class="chip">OLS</span><span class="chip">IV / 2SLS</span><span class="chip">MLE</span><span class="chip">GMM (efficient two-step)</span><span class="chip">M-estimation</span><span class="chip">Pseudo-MLE / KLIC</span><span class="chip">Empirical likelihood</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Inference &amp; testing</div><div class="chips">
-          <span class="chip">Wald · LR · LM (score)</span><span class="chip">Hausman–Wu endogeneity</span><span class="chip">Hansen J overidentification</span><span class="chip">Weak-instrument asymptotics</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Asymptotics &amp; resampling</div><div class="chips">
-          <span class="chip">LLN · CLT (Lindeberg–Feller)</span><span class="chip">Delta method · Slutsky</span><span class="chip">Bootstrap (with/without refinement)</span><span class="chip">Monte Carlo design</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Regularisation</div><div class="chips">
-          <span class="chip">Ridge (James–Stein)</span><span class="chip">Lasso · Elastic Net · Adaptive</span><span class="chip">High-dimensional (p &gt; n)</span><span class="chip">AIC · BIC · cross-validation</span>
+        <p class="desc">The estimator zoo and the asymptotics that justify it: OLS, IV/2SLS, MLE, GMM, M-estimation; Wald/LR/LM testing, Hausman and Hansen J; bootstrap and Monte Carlo design; ridge, lasso, and elastic net with information-criterion and cross-validated selection in high dimensions.</p>
+        <div class="used-in"><strong>Where it shipped:</strong> numerical-parity validation and divergence attribution in the <a href="projects.html">bank risk-engine rebuild</a>; covariance shrinkage and estimation-error control in portfolio work.</div>
+        <div class="topic-group"><div class="chips">
+          <span class="chip">GMM (efficient two-step)</span><span class="chip">Weak-instrument asymptotics</span><span class="chip">Bootstrap refinement</span><span class="chip">Lasso · Elastic Net</span><span class="chip">High-dimensional (p &gt; n)</span>
         </div></div>
       </div>
 
@@ -84,20 +76,12 @@
       <div class="pillar reveal">
         <div class="pillar-head">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h3l2-7 4 14 2-7h3l2 4h2"/></svg></div>
-          <div><h3>Multivariate time series</h3><div class="src">Advanced Time Series (Lütkepohl)</div></div>
+          <div><h3>Multivariate time series</h3><div class="src">Systems of series and the structure connecting them</div></div>
         </div>
-        <p class="desc">Systems of series, the structure connecting them, and the identification needed to read shocks causally.</p>
-        <div class="topic-group"><div class="tg-title">VAR systems</div><div class="chips">
-          <span class="chip">VAR(p): OLS · MLE · Yule–Walker</span><span class="chip">Order selection: LR · AIC · BIC · HQ</span><span class="chip">Wold / MA representation</span><span class="chip">Stability &amp; stationarity</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Structural analysis</div><div class="chips">
-          <span class="chip">Granger causality</span><span class="chip">Impulse response functions</span><span class="chip">FEVD</span><span class="chip">SVAR: A / B / AB models</span><span class="chip">Blanchard–Quah long-run</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Cointegration</div><div class="chips">
-          <span class="chip">I(0)/I(1)/I(d) · common trends</span><span class="chip">VECM</span><span class="chip">Johansen ML</span><span class="chip">Toda–Yamamoto</span><span class="chip">Bayesian VAR (Minnesota)</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">State space &amp; diagnostics</div><div class="chips">
-          <span class="chip">Kalman filter (derivation)</span><span class="chip">Unobserved components</span><span class="chip">Portmanteau · LM serial-corr.</span><span class="chip">Chow · CUSUM structural breaks</span>
+        <p class="desc">VAR estimation and order selection, Wold/MA representations, Granger causality, impulse responses and FEVD; structural identification (SVAR A/B/AB, Blanchard–Quah, external instruments); cointegration and VECM via Johansen; Kalman filtering and state-space models; structural-break and serial-correlation diagnostics.</p>
+        <div class="used-in"><strong>Where it shipped:</strong> the <a href="projects.html">budget &amp; forecasting system</a> (ARIMA/VAR over ~3,000 series) and mixed-frequency synchronisation in the risk engine; SVAR identification in my <a href="#academic">monetary-policy research</a>.</div>
+        <div class="topic-group"><div class="chips">
+          <span class="chip">SVAR identification</span><span class="chip">VECM · Johansen</span><span class="chip">Kalman filter (derived)</span><span class="chip">Bayesian VAR (Minnesota)</span><span class="chip">CUSUM / Chow breaks</span>
         </div></div>
       </div>
 
@@ -105,20 +89,12 @@
       <div class="pillar reveal">
         <div class="pillar-head">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l5-6 4 3 5-8 4 5"/><path d="M3 21h18"/></svg></div>
-          <div><h3>Financial econometrics &amp; risk</h3><div class="src">Financial Econometrics (Handbook of Fin. Time Series)</div></div>
+          <div><h3>Financial econometrics &amp; risk</h3><div class="src">Volatility dynamics and tail risk</div></div>
         </div>
-        <p class="desc">Volatility dynamics and tail risk — the theory underneath VaR, regulatory capital, and model validation.</p>
-        <div class="topic-group"><div class="tg-title">Volatility modelling</div><div class="chips">
-          <span class="chip">ARCH / GARCH(1,1)</span><span class="chip">EGARCH · GJR · TGARCH</span><span class="chip">IGARCH · FIGARCH (long memory)</span><span class="chip">GARCH-M</span><span class="chip">Stochastic volatility</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Estimation &amp; theory</div><div class="chips">
-          <span class="chip">QMLE (boundary behaviour)</span><span class="chip">LAD · Whittle · moment est.</span><span class="chip">Strict vs. weak stationarity</span><span class="chip">Ergodicity · mixing · ARCH(∞)</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Risk &amp; backtesting</div><div class="chips">
-          <span class="chip">VaR: parametric · historical · FHS</span><span class="chip">Filtered historical simulation</span><span class="chip">Christoffersen coverage tests</span><span class="chip">Independence tests</span><span class="chip">Mincer–Zarnowitz evaluation</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Portfolio</div><div class="chips">
-          <span class="chip">Mean–variance / efficient frontier</span><span class="chip">Covariance shrinkage</span><span class="chip">Estimation-error control</span>
+        <p class="desc">The GARCH family (EGARCH, GJR, IGARCH/FIGARCH, GARCH-M) and stochastic volatility; QMLE and its boundary behaviour; VaR by parametric, historical, and filtered-historical simulation; Christoffersen coverage and independence backtests; mean–variance portfolio theory with covariance shrinkage.</p>
+        <div class="used-in"><strong>Where it shipped:</strong> 30+ risk and performance metrics — VaR, CVaR, Expected Shortfall, drawdown indicators — live in a <a href="projects.html">Luxembourg bank's production risk library</a>; four-objective Pareto allocation for a <a href="projects.html">German life insurer</a>.</div>
+        <div class="topic-group"><div class="chips">
+          <span class="chip">VaR · CVaR · ES</span><span class="chip">Filtered historical simulation</span><span class="chip">Christoffersen backtests</span><span class="chip">GARCH family</span><span class="chip">Covariance shrinkage</span>
         </div></div>
       </div>
 
@@ -126,20 +102,12 @@
       <div class="pillar reveal">
         <div class="pillar-head">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.7 7.7L11 15.6M16.3 7.7L13 15.6M8.5 6h7"/></svg></div>
-          <div><h3>Statistical &amp; machine learning</h3><div class="src">Machine Learning (ISLR)</div></div>
+          <div><h3>Statistical &amp; machine learning</h3><div class="src">Supervised, unsupervised, and survival methods</div></div>
         </div>
-        <p class="desc">Supervised, unsupervised, and survival methods — with the bias–variance reasoning to deploy them responsibly.</p>
-        <div class="topic-group"><div class="tg-title">Supervised</div><div class="chips">
-          <span class="chip">Linear / logistic / GLM (Poisson)</span><span class="chip">LDA · QDA · Naive Bayes · KNN</span><span class="chip">Splines · basis expansions</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Ensembles &amp; kernels</div><div class="chips">
-          <span class="chip">Decision trees (Gini / entropy)</span><span class="chip">Bagging · Random Forests</span><span class="chip">Boosting · BART</span><span class="chip">SVM (kernel trick)</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Neural &amp; sequence</div><div class="chips">
-          <span class="chip">MLP · universal approximation</span><span class="chip">Backpropagation · SGD · dropout</span><span class="chip">RNNs · double descent</span>
-        </div></div>
-        <div class="topic-group"><div class="tg-title">Survival &amp; unsupervised</div><div class="chips">
-          <span class="chip">Kaplan–Meier · log-rank</span><span class="chip">Cox PH · regularised survival</span><span class="chip">Random Survival Forests</span><span class="chip">PCA · K-means · hierarchical</span>
+        <p class="desc">Tree ensembles (random forests, boosting), SVMs, and neural networks trained by backpropagation; survival analysis from Kaplan–Meier and Cox PH to Random Survival Forests; clustering and PCA — deployed with the bias–variance reasoning and validity boundaries needed to use them responsibly.</p>
+        <div class="used-in"><strong>Where it shipped:</strong> survival models on 108k vehicle records, a <a href="projects.html">five-model anomaly-detection ensemble</a> for warranty claims, and neural demand forecasting with embedding layers.</div>
+        <div class="topic-group"><div class="chips">
+          <span class="chip">Random Survival Forests</span><span class="chip">Ensemble stacking</span><span class="chip">Isolation Forest</span><span class="chip">Embeddings for seasonality</span><span class="chip">Hierarchical clustering</span>
         </div></div>
       </div>
 
@@ -147,13 +115,23 @@
   </div>
 </section>
 
+<!-- EDUCATION NOTE -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="callout reveal">
+      <p class="eyebrow">The training behind it</p>
+      <h3>Built from first principles at Konstanz</h3>
+      <p>The base comes from my M.Sc. Economics at the University of Konstanz (Econometrics specialisation, grade 1.7, Begabtenstipendium merit scholarship) — where I implemented the core methods from scratch rather than calling libraries, taught as a TA in Machine Learning and Probability &amp; Statistical Inference, and worked as a Research Assistant in statistical learning theory.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ACADEMIC PROJECTS -->
-<section>
+<section id="academic">
   <div class="wrap">
     <div class="reveal">
-      <p class="eyebrow">Where theory became code</p>
       <h2 class="section-title">Thesis &amp; research seminars</h2>
-      <p class="section-lead">Each was built end to end, with the algorithms implemented from scratch and evaluated under strict out-of-sample discipline.</p>
+      <p class="section-lead">Built end to end, algorithms implemented from scratch, evaluated under strict out-of-sample discipline.</p>
     </div>
 
     <div style="display:grid;gap:18px;margin-top:30px;">
@@ -222,6 +200,7 @@
     <div class="footer-links">
       <a href="mailto:viv.bhargav@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/vivek-bhargava-431b4561" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/vivekbhargava23" target="_blank" rel="noopener">GitHub</a>
       <a href="CV_Vivek_Bhargava.pdf" target="_blank" rel="noopener">CV</a>
     </div>
   </div>
