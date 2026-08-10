@@ -10,6 +10,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script>(function(){try{var t=localStorage.getItem("vb-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<style>
+/* ---- Areas of expertise ---- */
+.areas{ margin:0; display:grid; gap:0; border-top:1px solid var(--border); }
+.areas .area{ display:grid; grid-template-columns:minmax(210px,1fr) 3fr; gap:10px 34px;
+  padding:20px 4px; border-bottom:1px solid var(--border); align-items:baseline; }
+.areas dt{ font-size:16px; font-weight:600; color:var(--text); letter-spacing:-.01em; margin:0; }
+.areas dd{ margin:0; color:var(--text-dim); font-size:15.5px; line-height:1.65; }
+.areas .area:hover dt{ color:var(--accent); }
+.areas .area{ transition:background var(--speed); }
+.areas .area:hover{ background:color-mix(in srgb, var(--accent-soft) 55%, transparent); }
+@media (max-width:820px){
+  .areas .area{ grid-template-columns:1fr; gap:7px; padding:18px 4px; }
+  .areas dd{ font-size:15px; }
+}
+</style>
 </head>
 <body>
 
@@ -75,10 +90,49 @@
 <!-- STATS -->
 <section class="section-tight">
   <div class="wrap stats">
-    <div class="stat reveal"><div class="num">~6 yrs</div><div class="lbl">Quant research & modelling</div></div>
-    <div class="stat reveal"><div class="num">7</div><div class="lbl">Client systems at Fraunhofer ITWM</div></div>
-    <div class="stat reveal"><div class="num">867</div><div class="lbl">Tests in the personal dashboard suite</div></div>
-    <div class="stat reveal"><div class="num">3</div><div class="lbl">Institutions: IIT · IIM · Konstanz</div></div>
+    <div class="stat reveal"><div class="num">7</div><div class="lbl">Client systems delivered at Fraunhofer ITWM</div></div>
+    <div class="stat reveal"><div class="num">~5.7M</div><div class="lbl">Warranty claims scored by a system in production</div></div>
+    <div class="stat reveal"><div class="num">30+</div><div class="lbl">Risk metrics at full numerical parity, in daily use</div></div>
+    <div class="stat reveal"><div class="num">~3,000</div><div class="lbl">Cost series in a live forecasting system</div></div>
+  </div>
+</section>
+
+<!-- AREAS OF EXPERTISE -->
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="section-title">Areas of expertise</h2>
+      <p class="section-lead">What I build, validate, and hand over — with the methods that do the work named where they belong.</p>
+    </div>
+
+    <dl class="areas" style="margin-top:30px;">
+      <div class="area reveal">
+        <dt>Forecasting &amp; econometrics</dt>
+        <dd>ARIMA/SARIMA, VAR/VECM, cointegration, state-space and mixed-frequency models; rolling and expanding-window backtesting, Diebold–Mariano testing, bootstrap inference and Monte Carlo simulation.</dd>
+      </div>
+      <div class="area reveal">
+        <dt>Risk, portfolio &amp; cashflows</dt>
+        <dd>VaR and Expected Shortfall, performance and drawdown analytics, strategic asset allocation, mean-variance and multi-criteria optimisation, covariance estimation, cashflow and liquidity modelling, regulatory-capital and HGB/IFRS outputs.</dd>
+      </div>
+      <div class="area reveal">
+        <dt>Statistical learning</dt>
+        <dd>Regularised regression, tree ensembles, neural networks, anomaly-detection ensembles, survival analysis and clustering; temporal cross-validation, feature selection, and assessment of extrapolation limits.</dd>
+      </div>
+      <div class="area reveal">
+        <dt>Model validation &amp; delivery</dt>
+        <dd>Numerical-parity testing, sensitivity and sanity checks, mixed-frequency data alignment, automated test suites, database-write controls, and documented model-use boundaries.</dd>
+      </div>
+      <div class="area reveal">
+        <dt>Engineering</dt>
+        <dd>Python, R, SQL and MATLAB; scikit-learn, statsmodels, darts, TensorFlow/Keras, SciPy, pandas, NumPy and Pydantic; Git, pytest, GitLab CI/CD, PostgreSQL, SAP HANA, Streamlit and R Shiny.</dd>
+      </div>
+    </dl>
+
+    <div class="reveal" style="margin-top:24px;">
+      <a class="btn btn-ghost" href="expertise.html">See where each method shipped
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -108,22 +162,6 @@
           <span class="tag">Python · Streamlit</span><span class="tag">Pydantic v2</span><span class="tag">Clean architecture</span><span class="tag">Agentic workflow</span>
         </div>
         <p style="margin-top:14px;"><a href="ailab.html">Visit the AI Lab &rarr;</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERTISE TEASER -->
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="callout reveal">
-      <h3>Methods that have shipped, not just been studied</h3>
-      <p>Estimation theory, multivariate time series, financial econometrics, and machine learning — trained from first principles at Konstanz, then deployed in production for banks, insurers, and industrial clients. The expertise page maps each area to the project where it earned its keep.</p>
-      <div style="margin-top:20px;">
-        <a class="btn btn-primary" href="expertise.html">
-          Explore the technical depth
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
       </div>
     </div>
   </div>
