@@ -3,7 +3,7 @@
 A static, multi-page site (Home · Expertise · Projects · About · Contact) with a light/dark
 toggle. No build step, no dependencies — just HTML/CSS/JS. Ready for GitHub Pages.
 
-## Before you publish — add 3 images
+## Before you publish — add 2 images
 
 LinkedIn is already wired in (`vivek-bhargava-431b4561`). You just need to drop three files
 into `assets/`:
@@ -14,9 +14,6 @@ into `assets/`:
 
 2. **`caricature.png`** — the "Let's just cluster this first…" cartoon. Used in the About
    page "Off duty" section and on the custom 404 page.
-
-3. **`CV_Vivek_Bhargava.pdf`** — your résumé (the "Download CV" buttons point here). Use the
-   one from your Drive `Job 2026/02_CV/Current/` folder.
 
 > Optional: in `projects.html` there are commented-out "View repository" slots on the
 > dashboard project — uncomment and set `REPLACE-REPO-URL` if/when a repo goes public.
@@ -41,11 +38,10 @@ index.html        Home / hero
 expertise.html    Technical depth — the academic + from-scratch foundation
 projects.html     Builder/AI track + Fraunhofer production track
 about.html        Bio, education, experience, research output, leadership
-contact.html      Contact details + CV
+contact.html      Contact details
 assets/style.css  All styling (light + dark)
 assets/main.js    Theme toggle, mobile menu, scroll reveal
 assets/photo.jpg  ← you add this
-assets/CV_Vivek_Bhargava.pdf  ← you add this
 ```
 
 ## Editing tips
