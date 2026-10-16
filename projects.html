@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects — Vivek Bhargava</title>
+<meta name="description" content="Seven production quant systems delivered for banks, insurers, and industrial clients at Fraunhofer ITWM." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script>(function(){try{var t=localStorage.getItem("vb-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<script>if(location.hash==="#personal"){location.replace("ailab.html");}</script>
+<style>
+/* AI Lab teaser banner */
+.ailab-teaser{ position:relative; display:flex; align-items:center; justify-content:space-between; gap:18px 28px; flex-wrap:wrap;
+  border:1.5px solid transparent; border-radius:var(--radius); padding:20px 24px; margin-top:26px;
+  background:linear-gradient(var(--card),var(--card)) padding-box,
+            linear-gradient(135deg,var(--accent),var(--accent-2)) border-box;
+  box-shadow:0 0 0 1px var(--accent-soft); }
+.ailab-teaser h3{ font-size:18px; margin:0 0 5px; }
+.ailab-teaser p{ color:var(--text-dim); font-size:14.5px; line-height:1.55; margin:0; max-width:66ch; }
+.ailab-teaser .btn{ white-space:nowrap; }
+@media (max-width:640px){ .ailab-teaser{ flex-direction:column; align-items:flex-start; } .ailab-teaser .btn{ width:100%; justify-content:center; } }
+/* "My part" contribution line inside a team project */
+.project li.contrib{ list-style:none; margin-left:-1.15em; padding:10px 0 10px 13px; border-left:3px solid var(--accent); background:linear-gradient(90deg,var(--accent-soft),transparent 70%); border-radius:0 6px 6px 0; }
+.project li.contrib strong{ color:var(--text); font-weight:600; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="mark">VB</span><span class="brand-text">Vivek Bhargava<small>Quantitative Researcher</small></span></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="expertise.html">Expertise</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="ailab.html">AI Lab</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="icon-btn" id="theme-toggle" aria-label="Toggle light/dark">
+      <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:20px;">
+  <div class="wrap reveal">
+    <p class="eyebrow">Projects · Fraunhofer ITWM</p>
+    <h1 style="font-size:clamp(30px,4.6vw,50px);">Systems that left the notebook.</h1>
+    <p class="section-lead" style="margin-top:18px;font-size:18px;">Production quantitative systems delivered for banks, insurers, and industrial clients during my time at Fraunhofer ITWM — Germany's largest applied-research organisation. Each engagement was delivered end to end, from data extraction through model design to deployment, in Agile teams (GitLab, Jira, CI/CD). Clients are described by sector only; code is confidential.</p>
+
+    <div class="ailab-teaser reveal">
+      <div>
+        <h3>Looking for my AI &amp; personal engineering work?</h3>
+        <p>The solo-built AI-augmented investment platform, the seven-agent research engine, and the interactive dashboard now live on their own page.</p>
+      </div>
+      <a class="btn btn-primary" href="ailab.html">Visit the AI Lab
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:14px;">
+  <div class="wrap">
+
+    <div style="display:grid;gap:18px;">
+
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B1 · lead</div>
+          <h3>Risk-engine re-engineering</h3>
+          <div class="ctx">Major Luxembourg bank · MATLAB → Python</div>
+          <span class="status-chip live"><span class="dot"></span>Live in production</span>
+          <div class="tags"><span class="tag">VaR · CVaR · ES</span><span class="tag">Mixed-frequency</span><span class="tag">CI/CD</span></div>
+        </div>
+        <ul>
+          <li>Led re-engineering of a legacy MATLAB risk engine into a production Python library now used by the bank's risk team.</li>
+          <li>Implemented 30+ risk and return metrics — VaR, CVaR, Expected Shortfall, Sharpe / Sortino / Calmar, drawdown-based indicators — at full numerical parity with the legacy system.</li>
+          <li>Built a mixed-frequency time-series synchronisation layer handling daily/monthly/quarterly data, missing values, irregular reporting periods, and calendar alignment.</li>
+          <li>Delivered with full automated test coverage, GitLab CI/CD, and API documentation; instrumented divergences to separate numerical noise from genuine bugs.</li>
+        </ul>
+      </div>
+
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B2 · team</div>
+          <h3>Strategic asset allocation &amp; decision support</h3>
+          <div class="ctx">Major German mutual insurer · multi-criteria optimisation</div>
+          <span class="status-chip live"><span class="dot"></span>In operative use</span>
+          <div class="tags"><span class="tag">26 asset classes</span><span class="tag">Pareto frontier</span><span class="tag">Tchebycheff</span><span class="tag">Solvency II</span><span class="tag">R Shiny</span></div>
+        </div>
+        <ul>
+          <li>A multi-criteria strategic asset allocation system in operative use at a major German insurer, built and maintained by a Fraunhofer team over several years. It distributes an insurance balance sheet across 26 asset classes and returns Pareto-efficient compromise portfolios rather than a single optimum — the final allocation stays a human business decision.</li>
+          <li>Up to ten selectable objectives — expected return, volatility, Solvency II ratio, transaction volume, distance from the previous three-year allocation, HGB and IFRS results, FX exposure, illiquidity, and non-investment-grade exposure — optimised under one-year and three-year implementation-feasibility constraints, so portfolios that cannot actually be reached within the horizon are excluded rather than recommended.</li>
+          <li>Polyglot production stack: a Java optimisation core with a C/NLOpt solver, Python calibration and sensitivity analysis, an R Shiny front end, PostgreSQL persistence, and containerised deployment under GitLab CI.</li>
+          <li class="contrib"><strong>My part:</strong> I own the R Shiny decision-support layer — radar plots, constraint sliders, Pareto scenario filtering — and the feeding data pipeline, including the regulatory-capital and HGB/IFRS accounting outputs, so stakeholders can explore trade-offs across market and regulatory scenarios themselves.</li>
+        </ul>
+      </div>
+
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B3</div>
+          <h3>Neural-network demand forecasting</h3>
+          <div class="ctx">Fraunhofer ITWM · weather- &amp; calendar-driven time series</div>
+          <div class="tags"><span class="tag">Neural networks</span><span class="tag">Embeddings</span><span class="tag">ARIMA baselines</span><span class="tag">Multi-horizon</span></div>
+        </div>
+        <ul>
+          <li>Contributed to a Fraunhofer ITWM forecasting project using dense neural networks with embedding layers to encode calendar seasonality — month, weekday (including public holidays and bridge days), and hour — alongside seven meteorological variables (wind speed and direction, temperature, pressure, precipitation, radiation, CAPE).</li>
+          <li>Extended the pipeline with ARIMA baselines and applied the same approach to a separate parking-demand forecasting variant.</li>
+          <li>Worked the full pipeline end to end — feature engineering, standardisation, network training, and multi-horizon evaluation at 24 / 72 / 120-hour horizons — an approach directly relevant to weather- and seasonality-driven forecasting in energy markets.</li>
+        </ul>
+      </div>
+
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B4</div>
+          <h3>Budget &amp; forecasting system</h3>
+          <div class="ctx">German premium sports-car manufacturer · sole developer</div>
+          <div class="tags"><span class="tag">ARIMA</span><span class="tag">VAR · VARIMA</span><span class="tag">Hierarchical clustering</span><span class="tag">Diebold–Mariano</span></div>
+        </div>
+        <ul>
+          <li>Sole developer of an end-to-end forecasting system over ~3,000 cost time series, with percentile-based volume filtering isolating the ~150 that drive the budget.</li>
+          <li>Grouped correlated series by nested hierarchical clustering with cluster-size control, so multivariate models estimate on well-conditioned covariance structures instead of the full sparse cross-section — estimation-risk control under p ≪ T.</li>
+          <li>Selected between univariate (darts regression forecasters, ARIMA with automated ADF stationarity and differencing selection) and multivariate (VAR, VARIMA) specifications using rolling and expanding-window backtests with Diebold–Mariano tests. Owned it from data extraction to forecast delivery.</li>
+        </ul>
+      </div>
+
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B5</div>
+          <h3>Loan-portfolio cashflow forecasting</h3>
+          <div class="ctx">Major German mutual insurer · co-developed · two-module simulation</div>
+          <div class="tags"><span class="tag">Survival-weighted EV</span><span class="tag">Left-truncation</span><span class="tag">Hazard models</span><span class="tag">Annuity dynamics</span><span class="tag">Paper in prep.</span></div>
+        </div>
+        <ul>
+          <li>Co-developed a two-module loan-portfolio cashflow engine — disbursements and repayments modelled separately, every parameter calibrated from historical contract data and backtested against realised cashflows per month and booking entity, across both the existing book and forecasted new business.</li>
+          <li>Payout side: built an empirical, volume-weighted payout curve indexed by months-since-commitment with an outstanding-obligation (negative-cumsum) profile; each contract's <em>remaining</em> obligation is spread along the curve tail from its current age, segmented by loan purpose (construction vs. purchase).</li>
+          <li>Repayment entry under left-truncation: estimated time-to-full-payout with a duration estimator conditioned on survival to the contract's current age (the valid comparison set is contracts still un-paid-out at that age), plus a capital-weighted payout-timing distribution for contracts with no history yet.</li>
+          <li>Repayment streams: combined a standard annuity (interest on the outstanding balance, instalment fixed on the approved amount), a deterministic seasonal model for partial prepayments, and an age-dependent hazard for full early repayment that peaks at the statutory ~10-year fixed-rate exit right observed directly in the data.</li>
+          <li>Kept the simulation tractable by replacing per-contract Monte-Carlo branching with a single expected-value trajectory weighted by a running survival probability — full-repayment cash <code>P_alive · pₙ · Sₜ</code> with survival decayed each month — and modelled prolongation (nominal-rate reset from swap rates at fixed-rate end) and expiry. Joint paper in preparation.</li>
+        </ul>
+      </div>
+
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B6</div>
+          <h3>Vehicle failure prediction</h3>
+          <div class="ctx">High-performance automotive OEM · survival analysis</div>
+          <div class="tags"><span class="tag">Weibull</span><span class="tag">Random Survival Forests</span><span class="tag">Validity boundaries</span></div>
+        </div>
+        <ul>
+          <li>Developed survival models on ~108,000 vehicle records (~13,000 observed failures): a Weibull parametric baseline for hazard estimation, extended with Random Survival Forests to capture nonlinear covariate effects without imposing proportional hazards.</li>
+          <li>Documented model validity boundaries — RSF survival probability flattens beyond ~1,300 days — to prevent overconfident extrapolation.</li>
+          <li>Communicated uncertainty and limits to engineering and risk stakeholders for responsible use in warranty and service decisions.</li>
+        </ul>
+      </div>
+
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">B7</div>
+          <h3>Warranty-claim anomaly detection</h3>
+          <div class="ctx">High-performance automotive OEM · supervised + unsupervised ensemble</div>
+          <div class="tags"><span class="tag">Anomaly detection</span><span class="tag">Ensemble stacking</span><span class="tag">Isolation Forest</span><span class="tag">Weak / partial labels</span><span class="tag">Distribution shift</span><span class="tag">Reproducible pipeline</span></div>
+        </div>
+        <ul>
+          <li>Architected a five-model anomaly-detection ensemble fusing supervised learners (random forest, feed-forward neural net, gradient-boosted trees) with unsupervised detectors (group-conditional Z-score, Isolation Forest), reconciled by an L<sub>2</sub> linear-stacking meta-learner fitted on out-of-sample base scores.</li>
+          <li>Resolved a temporal label-decay / covariate-shift regime by confining supervised estimation to the densely-audited window while delegating out-of-window detection to the unsupervised models, whose reference statistics — cohort moments and isolation path-length — re-estimate without labels.</li>
+          <li>Engineered a weak-supervision labelling layer fusing audit recoveries, booking-correction pairs, and reviewed lists; anchored the empirical class prior to the audited source and propagated it through ratio equalisation and a fit-time representativeness filter held out of population scoring.</li>
+          <li>Productionised as a file-mediated train/score decoupling — fit-once, score-forever — over a relational claim schema aggregated to claim grain, with type-safe composite-key joins, regression-tested transforms, and a distributional guardrail (score-range, mean, and volume invariants) gating the HANA write.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== shared CTA ===================== -->
+<section style="padding-top:8px;">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div>
+        <h2>Want the methodology behind these?</h2>
+        <p>The estimation theory, time-series, and ML foundation that drives the modelling choices.</p>
+      </div>
+      <a class="btn btn-primary" href="expertise.html">Technical depth
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span class="muted">© <span id="yr"></span> Vivek Bhargava · Built as a static site for GitHub Pages.</span>
+    <div class="footer-links">
+      <a href="mailto:viv.bhargav@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/vivek-bhargava-431b4561" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/vivekbhargava23" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+<script src="main.js"></script>
+</body>
+</html>
