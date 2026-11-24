@@ -11,6 +11,13 @@
 <link rel="stylesheet" href="style.css" />
 <script>(function(){try{var t=localStorage.getItem("vb-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <style>
+.flow{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:22px; }
+.flow .st{ position:relative; border:1px solid var(--border); border-radius:12px; padding:14px 16px; background:var(--accent-soft); }
+.flow .st h4{ margin:0 0 4px; font-size:15px; }
+.flow .st p{ margin:0; font-size:13.5px; line-height:1.5; color:var(--text-dim); }
+.flow .st:not(:last-child)::after{ content:"→"; position:absolute; right:-11px; top:50%; transform:translateY(-50%); color:var(--accent); font-weight:700; }
+.flow-note{ font-size:13.5px; color:var(--text-dim); margin-top:12px; }
+@media (max-width:760px){ .flow{ grid-template-columns:minmax(0,1fr); } .flow .st:not(:last-child)::after{ content:"↓"; right:auto; left:50%; top:auto; bottom:-17px; transform:translateX(-50%); } }
 /* ---- Dashboard live-preview showcase ---- */
 .dash-preview{ margin:20px 0 6px; border:1px solid var(--border); border-radius:var(--radius); background:var(--card); overflow:hidden; box-shadow:var(--shadow); }
 .dash-shot{ position:relative; display:block; line-height:0; border-bottom:1px solid var(--border); }
@@ -78,6 +85,20 @@
     <p class="eyebrow">AI Lab</p>
     <h1 style="font-size:clamp(30px,4.6vw,50px);">Where I push applied AI to production standards.</h1>
     <p class="section-lead" style="margin-top:18px;font-size:18px;">A solo-built personal project, engineered to the same standards as my client work: clean architecture, strict CI gates and a human-in-the-loop agent workflow. The code is public on GitHub, and a browser preview with sample data is below.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;padding-bottom:10px;">
+  <div class="wrap reveal">
+    <h2 class="section-title" style="font-size:clamp(22px,2.6vw,28px);">Language models inside a system you can check</h2>
+    <p class="section-lead">The model interprets and proposes. Typed tools, tested numerical code and my approval decide what happens.</p>
+    <div class="flow" role="list">
+      <div class="st" role="listitem"><h4>Language model</h4><p>Reads the question and chooses which tools to call.</p></div>
+      <div class="st" role="listitem"><h4>Typed tool boundary</h4><p>12 read-only MCP tools with typed inputs and structured errors.</p></div>
+      <div class="st" role="listitem"><h4>Deterministic services</h4><p>The app's tested domain code computes every number.</p></div>
+      <div class="st" role="listitem"><h4>Human approval</h4><p>Nothing changes stored data until I accept it in the app.</p></div>
+    </div>
+    <p class="flow-note">Built today: all four stages. Planned: in-app discussion and evals of tool use and numerical correctness.</p>
   </div>
 </section>
 
