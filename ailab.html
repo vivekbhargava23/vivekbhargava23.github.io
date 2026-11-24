@@ -93,12 +93,12 @@
     <h2 class="section-title" style="font-size:clamp(22px,2.6vw,28px);">Language models inside a system you can check</h2>
     <p class="section-lead">The model interprets and proposes. Typed tools, tested numerical code and my approval decide what happens.</p>
     <div class="flow" role="list">
-      <div class="st" role="listitem"><h4>Language model</h4><p>Reads the question and chooses which tools to call.</p></div>
+      <div class="st" role="listitem"><h4>Language model</h4><p>An external AI client reads the question and chooses which tools to call.</p></div>
       <div class="st" role="listitem"><h4>Typed tool boundary</h4><p>12 read-only MCP tools with typed inputs and structured errors.</p></div>
       <div class="st" role="listitem"><h4>Deterministic services</h4><p>The app's tested domain code computes every number.</p></div>
-      <div class="st" role="listitem"><h4>Human approval</h4><p>Nothing changes stored data until I accept it in the app.</p></div>
+      <div class="st" role="listitem"><h4>Human approval</h4><p>Changes to research memory wait in an in-app inbox until I accept them.</p></div>
     </div>
-    <p class="flow-note">Built today: all four stages. Planned: in-app discussion and evals of tool use and numerical correctness.</p>
+    <p class="flow-note"><strong>Implemented:</strong> a local MCP server with 12 read-only tools, used from an external AI client; typed inputs and structured errors; tested financial services; an approval inbox for research-memory changes, today filled from imported past sessions rather than by the model.<br><strong>Planned:</strong> discussions inside the app, a tool for the model to propose changes, and evals of tool selection, numerical correctness and unsupported claims.</p>
   </div>
 </section>
 
@@ -157,7 +157,7 @@
         <ul>
           <li>A local MCP server exposes 12 read-only tools — positions, portfolio summary, concentration, upcoming catalysts and research-memory lookups — plus a bounded briefing that gives a model the context to start a research discussion.</li>
           <li>The model orchestrates; it never computes. Every figure comes from the app's own tested services, money crosses the boundary as a string with a currency code, and a missing value comes back as null with a reason instead of a guess.</li>
-          <li>Research memory stores past analysis as dated claims with a check status, dissent and watch-items, on an append-only change log. Nothing a model suggests reaches stored state until I accept it in the in-app approval inbox.</li>
+          <li>Research memory stores past analysis as dated claims with a check status, dissent and watch-items, on an append-only change log. Proposed changes reach stored state only after I accept them in the in-app approval inbox; the MCP tools themselves cannot write.</li>
           <li>An import-linter contract keeps the AI layer outside the domain and service layers, and the tools are unit-tested without an MCP client.</li>
         </ul>
       </div>
