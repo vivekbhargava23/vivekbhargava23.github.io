@@ -52,7 +52,7 @@
   <div class="wrap reveal">
     <p class="eyebrow">Projects · Fraunhofer ITWM</p>
     <h1 style="font-size:clamp(30px,4.6vw,50px);">Systems that left the notebook.</h1>
-    <p class="section-lead" style="margin-top:18px;font-size:18px;">Production quantitative systems delivered for banks, insurers, and industrial clients during my time at Fraunhofer ITWM — Germany's largest applied-research organisation. Each engagement was delivered end to end, from data extraction through model design to deployment, in Agile teams (GitLab, Jira, CI/CD). Clients are described by sector only; code is confidential.</p>
+    <p class="section-lead" style="margin-top:18px;font-size:18px;">Production quantitative systems delivered for banks, insurers, and industrial clients during my time at Fraunhofer ITWM — Germany's largest applied-research organisation. Delivered in Agile teams (GitLab, Jira, CI/CD); my role is stated on each project. Clients are described by sector only; code is confidential.</p>
 
     <div class="ailab-teaser reveal">
       <div>
@@ -83,7 +83,7 @@
           <li>Led re-engineering of a legacy MATLAB risk engine into a production Python library now used by the bank's risk team.</li>
           <li>Implemented 30+ risk and return metrics — VaR, CVaR, Expected Shortfall, Sharpe / Sortino / Calmar, drawdown-based indicators — at full numerical parity with the legacy system.</li>
           <li>Built a mixed-frequency time-series synchronisation layer handling daily/monthly/quarterly data, missing values, irregular reporting periods, and calendar alignment.</li>
-          <li>Delivered with full automated test coverage, GitLab CI/CD, and API documentation; instrumented divergences to separate numerical noise from genuine bugs.</li>
+          <li>Delivered with automated tests, GitLab CI/CD, and API documentation; instrumented divergences to separate numerical noise from genuine bugs.</li>
         </ul>
       </div>
 
@@ -139,11 +139,9 @@
           <div class="tags"><span class="tag">Survival-weighted EV</span><span class="tag">Left-truncation</span><span class="tag">Hazard models</span><span class="tag">Annuity dynamics</span><span class="tag">Paper in prep.</span></div>
         </div>
         <ul>
-          <li>Co-developed a two-module loan-portfolio cashflow engine — disbursements and repayments modelled separately, every parameter calibrated from historical contract data and backtested against realised cashflows per month and booking entity, across both the existing book and forecasted new business.</li>
-          <li>Payout side: built an empirical, volume-weighted payout curve indexed by months-since-commitment with an outstanding-obligation (negative-cumsum) profile; each contract's <em>remaining</em> obligation is spread along the curve tail from its current age, segmented by loan purpose (construction vs. purchase).</li>
-          <li>Repayment entry under left-truncation: estimated time-to-full-payout with a duration estimator conditioned on survival to the contract's current age (the valid comparison set is contracts still un-paid-out at that age), plus a capital-weighted payout-timing distribution for contracts with no history yet.</li>
-          <li>Repayment streams: combined a standard annuity (interest on the outstanding balance, instalment fixed on the approved amount), a deterministic seasonal model for partial prepayments, and an age-dependent hazard for full early repayment that peaks at the statutory ~10-year fixed-rate exit right observed directly in the data.</li>
-          <li>Kept the simulation tractable by replacing per-contract Monte-Carlo branching with a single expected-value trajectory weighted by a running survival probability — full-repayment cash <code>P_alive · pₙ · Sₜ</code> with survival decayed each month — and modelled prolongation (nominal-rate reset from swap rates at fixed-rate end) and expiry. Joint paper in preparation.</li>
+          <li>Co-developed a two-module cashflow engine that forecasts loan disbursements and repayments separately, calibrated on historical contract data and backtested against realised cashflows per month and booking entity.</li>
+          <li>The hard part was left-truncated data: contracts are seen only from a snapshot onward, so time-to-payout is estimated conditional on survival to each contract's current age, not on the full book.</li>
+          <li>Repayments combine an annuity schedule, seasonal partial prepayments and an age-dependent hazard for full early repayment, which peaks at the statutory ~10-year fixed-rate exit seen in the data. A survival-weighted expected-value path replaces per-contract simulation to keep it tractable. Joint paper in preparation.</li>
         </ul>
       </div>
 
@@ -165,14 +163,13 @@
         <div class="meta-col">
           <div class="pnum">B7</div>
           <h3>Warranty-claim anomaly detection</h3>
-          <div class="ctx">High-performance automotive OEM · supervised + unsupervised ensemble</div>
+          <div class="ctx">High-performance automotive OEM · supervised + unsupervised ensemble · ~900K claims</div>
           <div class="tags"><span class="tag">Anomaly detection</span><span class="tag">Ensemble stacking</span><span class="tag">Isolation Forest</span><span class="tag">Weak / partial labels</span><span class="tag">Distribution shift</span><span class="tag">Reproducible pipeline</span></div>
         </div>
         <ul>
-          <li>Architected a five-model anomaly-detection ensemble fusing supervised learners (random forest, feed-forward neural net, gradient-boosted trees) with unsupervised detectors (group-conditional Z-score, Isolation Forest), reconciled by an L<sub>2</sub> linear-stacking meta-learner fitted on out-of-sample base scores.</li>
-          <li>Resolved a temporal label-decay / covariate-shift regime by confining supervised estimation to the densely-audited window while delegating out-of-window detection to the unsupervised models, whose reference statistics — cohort moments and isolation path-length — re-estimate without labels.</li>
-          <li>Engineered a weak-supervision labelling layer fusing audit recoveries, booking-correction pairs, and reviewed lists; anchored the empirical class prior to the audited source and propagated it through ratio equalisation and a fit-time representativeness filter held out of population scoring.</li>
-          <li>Productionised as a file-mediated train/score decoupling — fit-once, score-forever — over a relational claim schema aggregated to claim grain, with type-safe composite-key joins, regression-tested transforms, and a distributional guardrail (score-range, mean, and volume invariants) gating the HANA write.</li>
+          <li>Designed and shipped major components of a production pipeline that scores ~900K aggregated warranty claims for over-claiming, combining supervised learners (random forest, gradient-boosted trees, neural net) with unsupervised detectors (group-conditional Z-score, Isolation Forest) through a stacking meta-model.</li>
+          <li>The hard part was the labels: audits cover only part of the history, so supervised models are trained on the well-audited window and the unsupervised detectors cover the rest, since they need no labels.</li>
+          <li>Separated training from scoring with persisted model artefacts, and added validation checks (score range, mean and volume) that must pass before results are written to SAP HANA.</li>
         </ul>
       </div>
 
