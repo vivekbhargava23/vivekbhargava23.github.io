@@ -4,13 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>AI Lab — Vivek Bhargava</title>
-<meta name="description" content="Vivek Bhargava's AI Lab — a solo-built AI-augmented investment-analytics platform, a multi-agent research engine, and a human-in-the-loop agentic delivery workflow." />
+<meta name="description" content="Vivek Bhargava's AI Lab — a solo-built investment-analytics platform with a read-only MCP layer, built through a human-in-the-loop agent workflow." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script>(function(){try{var t=localStorage.getItem("vb-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <style>
+.flow{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:22px; }
+.flow .st{ position:relative; border:1px solid var(--border); border-radius:12px; padding:14px 16px; background:var(--accent-soft); }
+.flow .st h4{ margin:0 0 4px; font-size:15px; }
+.flow .st p{ margin:0; font-size:13.5px; line-height:1.5; color:var(--text-dim); }
+.flow .st:not(:last-child)::after{ content:"→"; position:absolute; right:-11px; top:50%; transform:translateY(-50%); color:var(--accent); font-weight:700; }
+.flow-note{ font-size:13.5px; color:var(--text-dim); margin-top:12px; }
+@media (max-width:760px){ .flow{ grid-template-columns:minmax(0,1fr); } .flow .st:not(:last-child)::after{ content:"↓"; right:auto; left:50%; top:auto; bottom:-17px; transform:translateX(-50%); } }
 /* ---- Dashboard live-preview showcase ---- */
 .dash-preview{ margin:20px 0 6px; border:1px solid var(--border); border-radius:var(--radius); background:var(--card); overflow:hidden; box-shadow:var(--shadow); }
 .dash-shot{ position:relative; display:block; line-height:0; border-bottom:1px solid var(--border); }
@@ -77,7 +84,21 @@
   <div class="wrap reveal">
     <p class="eyebrow">AI Lab</p>
     <h1 style="font-size:clamp(30px,4.6vw,50px);">Where I push applied AI to production standards.</h1>
-    <p class="section-lead" style="margin-top:18px;font-size:18px;">Greenfield, solo-built, and deliberately engineered to the same standards as my client work — clean architecture, strict CI gates, and a human-in-the-loop agentic delivery workflow. These projects are mine: open, linkable, and demoable in your browser.</p>
+    <p class="section-lead" style="margin-top:18px;font-size:18px;">A solo-built personal project, engineered to the same standards as my client work: clean architecture, strict CI gates and a human-in-the-loop agent workflow. The code is public on GitHub, and a browser preview with sample data is below.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;padding-bottom:10px;">
+  <div class="wrap reveal">
+    <h2 class="section-title" style="font-size:clamp(22px,2.6vw,28px);">Language models inside a system you can check</h2>
+    <p class="section-lead">The model interprets and proposes. Typed tools, tested numerical code and my approval decide what happens.</p>
+    <div class="flow" role="list">
+      <div class="st" role="listitem"><h4>Language model</h4><p>Reads the question and chooses which tools to call.</p></div>
+      <div class="st" role="listitem"><h4>Typed tool boundary</h4><p>12 read-only MCP tools with typed inputs and structured errors.</p></div>
+      <div class="st" role="listitem"><h4>Deterministic services</h4><p>The app's tested domain code computes every number.</p></div>
+      <div class="st" role="listitem"><h4>Human approval</h4><p>Nothing changes stored data until I accept it in the app.</p></div>
+    </div>
+    <p class="flow-note">Built today: all four stages. Planned: in-app discussion and evals of tool use and numerical correctness.</p>
   </div>
 </section>
 
@@ -91,17 +112,15 @@
           <div class="pnum">A1 · flagship</div>
           <h3>AI-Augmented Investment Analytics Platform</h3>
           <div class="ctx">Solo-built · Python / Streamlit · ongoing personal project</div>
-          <span class="status-chip live"><span class="dot"></span>Active build</span>
+          <span class="status-chip live"><span class="dot"></span>Ongoing</span>
           <div class="tags"><span class="tag">Clean architecture</span><span class="tag">Pydantic v2</span><span class="tag">German tax engine</span><span class="tag">Agentic AI</span></div>
-          <!-- Wire-in slot: add repo link when public
-          <p style="margin-top:10px;"><a href="REPLACE-REPO-URL" target="_blank" rel="noopener">View repository →</a></p>
-          -->
+          <p style="margin-top:10px;"><a href="https://github.com/vivekbhargava23/Investment-Dashboard-2" target="_blank" rel="noopener">View repository →</a></p>
         </div>
         <ul>
           <li>A personal investment-analytics platform on a four-layer clean architecture — UI, services, domain, ports &amp; adapters — with a zero-I/O domain layer enforced by import-boundary linting in CI and strictly typed boundaries via Pydantic v2.</li>
           <li>Domain layer includes a German FIFO capital-gains tax engine implementing the flat-rate investment-income tax, the annual saver's tax-free allowance, and loss-offset carry-forward buckets — unit-tested against hand-calculated references — plus a pre-trade simulator computing exact lot consumption and tax impact before a trade.</li>
           <li>Multi-source data layer composes market-data APIs, FX feeds, and broker CSV imports through adapter/composite patterns, with TTL caching and ISIN-to-ticker resolution; FX-aware EUR-native valuation with correlation, concentration, and performance analytics.</li>
-          <li>Shipped as 70+ tickets across 7 milestones with an 867-test regression suite; CI runs tests, type-checking, and architecture-boundary linting on every PR.</li>
+          <li>Built through 110+ tickets with 12 recorded architecture decisions and 1,600+ automated tests; CI runs tests, type-checking and architecture-boundary linting on every PR.</li>
           <li>Built and hardened a human-in-the-loop agentic-AI delivery workflow: a chat surface drafts schema-compliant tickets; a CLI implementation agent executes one ticket per branch/PR with deterministic state transitions tied to GitHub Issues; branch protection forces PR-only merges.</li>
         </ul>
       </div>
@@ -111,15 +130,15 @@
         <a class="dash-shot" href="dashboard.html" aria-label="Open the interactive Investment Panel dashboard preview">
           <img src="dashboard-preview.jpg" width="1600" height="1025" loading="lazy"
                alt="Investment Panel dashboard — Live Overview showing portfolio value, unrealised P&amp;L, a live positions table with sparklines, and a thesis-exposure breakdown." />
-          <span class="dash-shot-tag"><span class="dot"></span>Live Overview · interactive preview</span>
+          <span class="dash-shot-tag"><span class="dot"></span>Design preview · sample data</span>
           <span class="dash-shot-open">Click to open
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M21 14v7H3V3h7"/></svg>
           </span>
         </a>
         <figcaption class="dash-cta">
           <div class="dash-cta-text">
-            <h4>See the Investment Panel in action</h4>
-            <p>A fully interactive, browser-native preview of the live dashboard — Live Overview, lot ledger, FX-aware performance, the German tax dashboard, and decision gates. Nothing to install — it opens right in your browser.</p>
+            <h4>Browse a preview of the dashboard</h4>
+            <p>An interactive design preview with sample data — overview, lot ledger, FX-aware performance and the German tax dashboard. It opens in your browser; the real app runs locally on my own data.</p>
           </div>
           <a class="btn btn-primary btn-lg" href="dashboard.html">Open the interactive dashboard
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -127,60 +146,32 @@
         </figcaption>
       </figure>
 
-      <!-- ===== Signature feature: multi-agent persona research engine ===== -->
-      <figure class="dash-preview dash-feature reveal">
-        <figcaption class="dash-feature-head">
-          <p class="eyebrow"><svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>Signature · agentic AI</p>
-          <h4>A multi-agent persona research engine</h4>
-          <p>The platform's most distinctive layer: seven specialised agents independently argue a position, vote, and write a single source-grounded consensus with explicit facts, dates, and tripwires. Every run is committed to an auditable behavioural ledger — so research decisions are traceable and reviewable, not vibes.</p>
-          <div class="personas">
-            <span class="persona">Macro</span><span class="persona">Technical</span><span class="persona">Fundamentals</span><span class="persona">Risk Officer</span><span class="persona">Flow Tracker</span><span class="persona">Thesis Keeper</span><span class="persona">Devil's Advocate</span>
-          </div>
-        </figcaption>
-        <a class="dash-shot" href="dashboard.html" aria-label="Open the multi-agent Behavioural Ledger in the dashboard">
-          <img src="dashboard-agents.jpg" width="1600" height="1945" loading="lazy"
-               alt="Behavioural Ledger — a seven-persona multi-agent research run for NVDA showing the consensus vote, bull/base/bear scenarios, key facts, dates and risks, and the full agent transcript." />
-          <span class="dash-shot-tag"><span class="dot"></span>Behavioural Ledger · 7-agent consensus</span>
-          <span class="dash-shot-open">Click to open
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M21 14v7H3V3h7"/></svg>
-          </span>
-        </a>
-        <figcaption class="dash-cta">
-          <div class="dash-cta-text">
-            <h4>Open the multi-agent ledger</h4>
-            <p>Walk a full research run end to end — debate, scenarios, per-agent price targets, and the logged consensus that comes out of it.</p>
-          </div>
-          <a class="btn btn-primary btn-lg" href="dashboard.html">Open the interactive dashboard
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </figcaption>
-      </figure>
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">A2</div>
+          <h3>AI layer: read-only MCP server and research memory</h3>
+          <div class="ctx">Part of the platform above · Python · MCP</div>
+          <span class="status-chip live"><span class="dot"></span>Built</span>
+          <div class="tags"><span class="tag">MCP</span><span class="tag">Typed tool contracts</span><span class="tag">Human approval</span></div>
+        </div>
+        <ul>
+          <li>A local MCP server exposes 12 read-only tools — positions, portfolio summary, concentration, upcoming catalysts and research-memory lookups — plus a bounded briefing that gives a model the context to start a research discussion.</li>
+          <li>The model orchestrates; it never computes. Every figure comes from the app's own tested services, money crosses the boundary as a string with a currency code, and a missing value comes back as null with a reason instead of a guess.</li>
+          <li>Research memory stores past analysis as dated claims with a check status, dissent and watch-items, on an append-only change log. Nothing a model suggests reaches stored state until I accept it in the in-app approval inbox.</li>
+          <li>An import-linter contract keeps the AI layer outside the domain and service layers, and the tools are unit-tested without an MCP client.</li>
+        </ul>
+      </div>
 
-      <div class="grid-2">
-        <div class="project reveal" style="grid-template-columns:1fr;">
-          <div class="meta-col">
-            <div class="pnum">A2</div>
-            <h3>German tax-report tool (Steuer-KAP)</h3>
-            <div class="ctx">Spin-out of the dashboard tax engine</div>
-            <span class="status-chip wip"><span class="dot"></span>In progress</span>
-          </div>
-          <ul>
-            <li>A focused tool that turns broker data into German capital-income tax reporting, building on the dashboard's FIFO / flat-rate-tax logic.</li>
-            <li>The monetisation experiment — taking validated domain logic and packaging it as a standalone product.</li>
-          </ul>
+      <div class="project reveal">
+        <div class="meta-col">
+          <div class="pnum">Next</div>
+          <h3>In-app research discussion</h3>
+          <div class="ctx">Planned · not built yet</div>
+          <span class="status-chip wip"><span class="dot"></span>Roadmap</span>
         </div>
-        <div class="project reveal" style="grid-template-columns:1fr;">
-          <div class="meta-col">
-            <div class="pnum">A3</div>
-            <h3>Multi-expert research engine — next iterations</h3>
-            <div class="ctx">Evolving the shipped 7-agent Behavioural Ledger</div>
-            <span class="status-chip wip"><span class="dot"></span>Roadmap</span>
-          </div>
-          <ul>
-            <li>Version one ships today as the seven-persona Behavioural Ledger above. The roadmap extends it: deeper source grounding, longitudinal tracking of each agent's forecast accuracy, and calibration of the consensus vote against realised outcomes.</li>
-            <li>An ongoing exploration of epistemics and human-in-the-loop orchestration — surfacing disagreement rather than producing a single opaque answer.</li>
-          </ul>
-        </div>
+        <ul>
+          <li>Run the research discussion inside the app instead of through an external chat client: a model gateway, a discussion flow I control, streaming, cost tracking and evals of tool use and numerical correctness.</li>
+        </ul>
       </div>
 
     </div>
@@ -193,7 +184,7 @@
     <div class="cta-band reveal">
       <div>
         <h2>Curious about the client-side track?</h2>
-        <p>Seven production quant systems delivered for banks, insurers, and industrial clients at Fraunhofer ITWM.</p>
+        <p>Seven quantitative projects for banks, insurers and industrial clients at Fraunhofer ITWM.</p>
       </div>
       <a class="btn btn-primary" href="projects.html">View client projects
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>

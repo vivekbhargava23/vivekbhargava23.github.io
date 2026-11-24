@@ -4,13 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Expertise — Vivek Bhargava</title>
-<meta name="description" content="The econometric, time-series, and machine-learning methods behind Vivek Bhargava's production quant work — and where each has shipped." />
+<meta name="description" content="The econometric, time-series, and machine-learning methods behind Vivek Bhargava's production quant work — and where each has been used." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <script>(function(){try{var t=localStorage.getItem("vb-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <style>
+.pillar details.methods{ margin-top:14px; border-top:1px solid var(--border-soft); padding-top:10px; }
+.pillar details.methods summary{ cursor:pointer; font-size:14px; font-weight:600; color:var(--accent); padding:6px 0; list-style-position:inside; }
+.pillar details.methods summary:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+.pillar .mg{ margin-top:12px; }
+.pillar .mg h4{ font-size:14.5px; margin:0 0 4px; color:var(--text); }
+.pillar .mg p{ font-size:13.5px; line-height:1.55; color:var(--text-dim); margin:0 0 4px; }
+.pillar .mg .chk strong{ color:var(--text); font-weight:600; }
 .pillar .used-in{ font-size:13.5px; line-height:1.55; color:var(--text-dim); border-left:3px solid var(--accent); padding:2px 0 2px 12px; margin:12px 0 4px; }
 .pillar .used-in strong{ color:var(--text); font-weight:600; }
 .pillar .used-in a{ white-space:nowrap; }
@@ -43,73 +50,99 @@
     <p class="eyebrow">Expertise</p>
     <h1 style="font-size:clamp(30px,4.6vw,50px);">Foundations, not just frameworks.</h1>
     <p class="section-lead" style="margin-top:18px;font-size:18px;">
-      Almost every method below has shipped in a production system — a bank's risk engine, an insurer's allocation framework, an automotive anomaly pipeline — or was implemented from scratch during my econometrics training. I can derive these methods, reason about when they break, and choose between them on the merits, because I've had to do all three under delivery pressure.
+      The methods I work with, from my econometrics training at Konstanz to the client systems I build at Fraunhofer ITWM. Each area below says where I have actually used it.
     </p>
   </div>
 </section>
 
-<!-- FOUR PILLARS -->
+<!-- CAPABILITY MAP -->
 <section style="padding-top:10px;">
   <div class="wrap">
     <div class="reveal">
-      <h2 class="section-title">Four pillars, each tied to delivered work</h2>
-      <p class="section-lead">The methodological base, with pointers to the projects where each area earned its keep.</p>
+      <h2 class="section-title">Capability map</h2>
+      <p class="section-lead">Eight areas. Each one says where I used it — client production systems at Fraunhofer ITWM, my M.Sc. research, coursework, or my personal platform — and opens to the methods in detail and how I check them.</p>
     </div>
 
-    <div class="grid-2" style="margin-top:30px;">
+    <div class="grid-2" style="margin-top:30px;align-items:start;">
 
-      <!-- Pillar 1 -->
       <div class="pillar reveal">
         <div class="pillar-head">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V5M4 19h16M8 16l3-5 3 3 4-7"/></svg></div>
-          <div><h3>Estimation theory &amp; inference</h3><div class="src">Why a method is right — not just how to run it</div></div>
+          <div><h3>Statistical estimation &amp; inference</h3><div class="src">M.Sc. training · basis for client model choices</div></div>
         </div>
-        <p class="desc">The estimator zoo and the asymptotics that justify it: OLS, IV/2SLS, MLE, GMM, M-estimation; Wald/LR/LM testing, Hausman and Hansen J; bootstrap and Monte Carlo design; ridge, lasso, and elastic net with information-criterion and cross-validated selection in high dimensions.</p>
-        <div class="used-in"><strong>Where it shipped:</strong> numerical-parity validation and divergence attribution in the <a href="projects.html">bank risk-engine rebuild</a>; covariance shrinkage and estimation-error control in portfolio work.</div>
-        <div class="topic-group"><div class="chips">
-          <span class="chip">GMM (efficient two-step)</span><span class="chip">Weak-instrument asymptotics</span><span class="chip">Bootstrap refinement</span><span class="chip">Lasso · Elastic Net</span><span class="chip">High-dimensional (p &gt; n)</span>
-        </div></div>
+        <p class="desc">Regression, MLE and QMLE, GMM, IV/2SLS and M-estimation; asymptotic and bootstrap inference, Wald/LR/LM testing, and Monte Carlo checks of finite-sample behaviour.</p>
+        <div class="used-in"><strong>Where I used it:</strong> Implemented from scratch during my M.Sc. in econometrics; it is the basis for how I choose and validate models in the <a href="projects.html">client work</a>.</div>
+        <details class="methods"><summary>Methods in detail</summary><div class="mg"><h4>Estimation</h4><p>OLS and GLS; maximum likelihood with scores, Hessians and information matrices; quasi-ML under misspecification; GMM with efficient two-step weighting; M- and minimum-distance estimation.</p><p class="chk"><strong>Checked by:</strong> heteroskedasticity- and autocorrelation-robust covariances; Wald, likelihood-ratio and Lagrange-multiplier tests.</p></div><div class="mg"><h4>Identification</h4><p>Endogeneity from omitted variables, simultaneity and measurement error; IV/2SLS and control functions; weak- and many-instrument problems.</p><p class="chk"><strong>Checked by:</strong> overidentification and Hausman–Wu specification tests.</p></div><div class="mg"><h4>Uncertainty</h4><p>Parametric, nonparametric and dependent-data bootstrap; Monte Carlo experiments on bias, variance, test size and power.</p><p class="chk"><strong>Checked by:</strong> Jarque–Bera, Kolmogorov–Smirnov and QQ diagnostics of distributional assumptions.</p></div></details>
       </div>
-
-      <!-- Pillar 2 -->
       <div class="pillar reveal">
         <div class="pillar-head">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h3l2-7 4 14 2-7h3l2 4h2"/></svg></div>
-          <div><h3>Multivariate time series</h3><div class="src">Systems of series and the structure connecting them</div></div>
+          <div><h3>Numerical optimisation &amp; learning</h3><div class="src">Production (team system) · M.Sc. thesis</div></div>
         </div>
-        <p class="desc">VAR estimation and order selection, Wold/MA representations, Granger causality, impulse responses and FEVD; structural identification (SVAR A/B/AB, Blanchard–Quah, external instruments); cointegration and VECM via Johansen; Kalman filtering and state-space models; structural-break and serial-correlation diagnostics.</p>
-        <div class="used-in"><strong>Where it shipped:</strong> the <a href="projects.html">budget &amp; forecasting system</a> (ARIMA/VAR over ~3,000 series) and mixed-frequency synchronisation in the risk engine; SVAR identification in my <a href="#academic">monetary-policy research</a>.</div>
-        <div class="topic-group"><div class="chips">
-          <span class="chip">SVAR identification</span><span class="chip">VECM · Johansen</span><span class="chip">Kalman filter (derived)</span><span class="chip">Bayesian VAR (Minnesota)</span><span class="chip">CUSUM / Chow breaks</span>
-        </div></div>
+        <p class="desc">Loss functions and gradient-based estimation, Lasso and Elastic Net, cross-validated model selection, and constrained and multi-objective (Pareto) optimisation.</p>
+        <div class="used-in"><strong>Where I used it:</strong> Weighted-Tchebycheff Pareto allocation in an <a href="projects.html">insurer's asset-allocation system</a> (team system; I own its decision-support layer); constrained hyperparameter search in my <a href="#academic">M.Sc. thesis</a>.</div>
+        <details class="methods"><summary>Methods in detail</summary><div class="mg"><h4>Objectives and solvers</h4><p>L1, L2, Huber, hinge and negative log-likelihood losses; analytical gradients and Hessians; batch and stochastic gradient descent, AdaGrad and Adam.</p><p class="chk"><strong>Checked by:</strong> convergence diagnostics and comparison against closed-form or benchmark estimates.</p></div><div class="mg"><h4>Regularisation</h4><p>Ridge, Lasso, Elastic Net and adaptive Lasso; regularisation paths; pseudoinverse methods for ill-conditioned, high-dimensional problems.</p><p class="chk"><strong>Checked by:</strong> leave-one-out, K-fold and nested cross-validation, with a final check on untouched test data.</p></div><div class="mg"><h4>Constrained and multi-objective</h4><p>Bounds and nonlinear risk constraints; non-dominated solutions, extreme portfolios, weighted-Tchebycheff scalarisation and objective-space subdivision.</p><p class="chk"><strong>Checked by:</strong> feasibility constraints and sensitivity analysis of the trade-offs.</p></div></details>
       </div>
-
-      <!-- Pillar 3 -->
       <div class="pillar reveal">
         <div class="pillar-head">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l5-6 4 3 5-8 4 5"/><path d="M3 21h18"/></svg></div>
-          <div><h3>Financial econometrics &amp; risk</h3><div class="src">Volatility dynamics and tail risk</div></div>
+          <div><h3>Machine learning &amp; neural methods</h3><div class="src">Production · M.Sc. thesis</div></div>
         </div>
-        <p class="desc">The GARCH family (EGARCH, GJR, IGARCH/FIGARCH, GARCH-M) and stochastic volatility; QMLE and its boundary behaviour; VaR by parametric, historical, and filtered-historical simulation; Christoffersen coverage and independence backtests; mean–variance portfolio theory with covariance shrinkage.</p>
-        <div class="used-in"><strong>Where it shipped:</strong> 30+ risk and performance metrics — VaR, CVaR, Expected Shortfall, drawdown indicators — live in a <a href="projects.html">Luxembourg bank's production risk library</a>; multi-criteria Pareto allocation for a <a href="projects.html">major German insurer</a>.</div>
-        <div class="topic-group"><div class="chips">
-          <span class="chip">VaR · CVaR · ES</span><span class="chip">Filtered historical simulation</span><span class="chip">Christoffersen backtests</span><span class="chip">GARCH family</span><span class="chip">Covariance shrinkage</span>
-        </div></div>
+        <p class="desc">Tree ensembles and gradient boosting, anomaly detection, feedforward and recurrent networks, Echo State Networks, and linear and nonlinear dimensionality reduction.</p>
+        <div class="used-in"><strong>Where I used it:</strong> Production anomaly scoring of ~900K <a href="projects.html">warranty claims</a>; neural demand forecasting with calendar embeddings; three Echo State Network architectures built from scratch in my <a href="#academic">thesis</a>.</div>
+        <details class="methods"><summary>Methods in detail</summary><div class="mg"><h4>Classification and ensembles</h4><p>LDA, QDA and naive Bayes; logistic regression, k-NN and kernel SVMs; decision trees, random forests, gradient boosting and XGBoost.</p><p class="chk"><strong>Checked by:</strong> confusion matrices, precision/recall, ROC/AUC and explicit choice of operating threshold.</p></div><div class="mg"><h4>Anomaly detection</h4><p>Group-conditional Z-scores, Isolation Forest and supervised tree ensembles combined into one score; label-availability windows and consistent training and scoring.</p><p class="chk"><strong>Checked by:</strong> temporal-leakage checks, monitoring of distribution change and review of flagged records.</p></div><div class="mg"><h4>Neural and representation methods</h4><p>Feedforward and recurrent networks trained by backpropagation; Echo State Networks (spectral radius, leaky integrators, ridge readout); PCA, kernel PCA, t-SNE, autoencoders and clustering.</p><p class="chk"><strong>Checked by:</strong> statistical and tree-based baselines, and performance before versus after dimension reduction.</p></div></details>
       </div>
-
-      <!-- Pillar 4 -->
       <div class="pillar reveal">
         <div class="pillar-head">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.7 7.7L11 15.6M16.3 7.7L13 15.6M8.5 6h7"/></svg></div>
-          <div><h3>Statistical &amp; machine learning</h3><div class="src">Supervised, unsupervised, and survival methods</div></div>
+          <div><h3>Time-series modelling</h3><div class="src">Production · research seminar</div></div>
         </div>
-        <p class="desc">Tree ensembles (random forests, boosting), SVMs, and neural networks trained by backpropagation; survival analysis from Kaplan–Meier and Cox PH to Random Survival Forests; clustering and PCA — deployed with the bias–variance reasoning and validity boundaries needed to use them responsibly.</p>
-        <div class="used-in"><strong>Where it shipped:</strong> survival models on 108k vehicle records, a <a href="projects.html">five-model anomaly-detection ensemble</a> for warranty claims, and neural demand forecasting with embedding layers.</div>
-        <div class="topic-group"><div class="chips">
-          <span class="chip">Random Survival Forests</span><span class="chip">Ensemble stacking</span><span class="chip">Isolation Forest</span><span class="chip">Embeddings for seasonality</span><span class="chip">Hierarchical clustering</span>
-        </div></div>
+        <p class="desc">ARIMA, VAR/VECM and cointegration, SVAR identification, state-space models and Kalman filtering, mixed-frequency forecasting, and out-of-sample evaluation with rolling windows and Diebold–Mariano tests.</p>
+        <div class="used-in"><strong>Where I used it:</strong> <a href="projects.html">Budget forecasting over ~3,000 cost series</a> (sole developer); mixed-frequency alignment in the bank risk engine; SVAR with external instruments in a <a href="#academic">research seminar</a>.</div>
+        <details class="methods"><summary>Methods in detail</summary><div class="mg"><h4>Univariate</h4><p>Stationarity, ACF/PACF identification and Box–Jenkins ARIMA; multi-step forecast recursions and prediction intervals.</p><p class="chk"><strong>Checked by:</strong> ADF and Ljung–Box tests and residual whiteness.</p></div><div class="mg"><h4>Multivariate</h4><p>VAR with information-criterion lag selection and Granger causality; Johansen cointegration and VECM; SVAR with Cholesky or external-instrument identification, impulse responses and variance decompositions; Bayesian estimation.</p><p class="chk"><strong>Checked by:</strong> stability conditions and forecast-error covariance.</p></div><div class="mg"><h4>State space and forecasting systems</h4><p>Kalman filtering and prediction-error likelihood; mixed-frequency forecasting (U-MIDAS, reservoir models); clustering to tame sparse, heterogeneous panels.</p><p class="chk"><strong>Checked by:</strong> rolling, expanding and fixed windows with intact forecast origins, and Diebold–Mariano tests.</p></div></details>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-head">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V5M4 19h16M8 16l3-5 3 3 4-7"/></svg></div>
+          <div><h3>Financial mathematics &amp; risk</h3><div class="src">Production · seminar · coursework</div></div>
+        </div>
+        <p class="desc">VaR and Expected Shortfall with backtesting, GARCH-family and stochastic-volatility models, realised volatility and HAR, and mean–variance and constrained portfolio optimisation.</p>
+        <div class="used-in"><strong>Where I used it:</strong> 30+ risk and performance metrics in a <a href="projects.html">Luxembourg bank's production risk library</a>; Solvency II and HGB/IFRS outputs in the insurer allocation system; cluster-based minimum-variance portfolios in a <a href="#academic">seminar</a>. Volatility models come from coursework.</div>
+        <details class="methods"><summary>Methods in detail</summary><div class="mg"><h4>Volatility</h4><p>GARCH, EGARCH and GJR; stochastic volatility; realised volatility and HAR; BEKK multivariate covariance; Student-t and skewed innovation densities.</p><p class="chk"><strong>Checked by:</strong> ARCH-LM and probability-integral-transform diagnostics; out-of-sample RMSFE and Diebold–Mariano comparisons.</p></div><div class="mg"><h4>Risk measurement</h4><p>Historical, parametric and conditional-volatility VaR; Expected Shortfall; drawdown, downside and performance metrics.</p><p class="chk"><strong>Checked by:</strong> exceedance and unconditional-coverage backtests; tolerance-based numerical parity between implementations.</p></div><div class="mg"><h4>Portfolio construction</h4><p>Mean–variance and global minimum-variance portfolios; covariance shrinkage and clustering-based allocation; Pareto multi-criteria allocation under Solvency II and HGB/IFRS constraints.</p><p class="chk"><strong>Checked by:</strong> rolling out-of-sample performance against benchmarks, including transaction costs.</p></div></details>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-head">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h3l2-7 4 14 2-7h3l2 4h2"/></svg></div>
+          <div><h3>Survival, reliability &amp; causal models</h3><div class="src">Production · coursework</div></div>
+        </div>
+        <p class="desc">Weibull models and Random Survival Forests on censored data, hazard-based cashflow timing, treatment-effect estimation and structural identification.</p>
+        <div class="used-in"><strong>Where I used it:</strong> Failure models on ~108K <a href="projects.html">vehicle records</a> with a documented validity horizon; survival-conditioned repayment modelling in a <a href="projects.html">loan cashflow engine</a> (co-developed). Causal methods come from coursework and research.</div>
+        <details class="methods"><summary>Methods in detail</summary><div class="mg"><h4>Survival and reliability</h4><p>Weibull hazards and survival functions; right-censored data and exposure periods; Random Survival Forests.</p><p class="chk"><strong>Checked by:</strong> survival-curve behaviour in sparse tails, and a stated limit on extrapolating beyond observed follow-up.</p></div><div class="mg"><h4>Event-driven cashflows</h4><p>Survival-conditioned repayment schedules, early-repayment hazards and empirical payout curves.</p><p class="chk"><strong>Checked by:</strong> backtests of projected against realised cashflows.</p></div><div class="mg"><h4>Causal inference</h4><p>Average treatment effects; partially linear (residual-on-residual) estimation with Lasso or tree nuisance models; propensity-score weighting; structural shocks via external-instrument SVAR.</p><p class="chk"><strong>Checked by:</strong> comparison with naive OLS and sensitivity to identifying assumptions.</p></div></details>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-head">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l5-6 4 3 5-8 4 5"/><path d="M3 21h18"/></svg></div>
+          <div><h3>AI systems &amp; tool interfaces</h3><div class="src">Personal project</div></div>
+        </div>
+        <p class="desc">Language models connected to deterministic services through typed, read-only tools: the model chooses tools and words the answer, the services compute every number, and nothing the model suggests changes stored state without my approval.</p>
+        <div class="used-in"><strong>Where I used it:</strong> A local MCP server with 12 read-only tools in my <a href="ailab.html">investment-analytics platform</a>, built through an agent-assisted workflow gated by tests, type checks and my review.</div>
+        <details class="methods"><summary>Methods in detail</summary><div class="mg"><h4>Model–tool separation</h4><p>The language model interprets the question and chooses tools; tested deterministic services compute every number and own all financial state.</p><p class="chk"><strong>Checked by:</strong> <em>built:</em> 12 read-only tools on a local MCP server, unit-tested without an MCP client.</p></div><div class="mg"><h4>Typed contracts and permissions</h4><p>Typed requests and responses, read-only versus state-changing operations, and structured errors (a missing value returns null with a reason) instead of guesses.</p><p class="chk"><strong>Checked by:</strong> <em>built:</em> an approval inbox; nothing a model suggests changes stored data until I accept it.</p></div><div class="mg"><h4>Harness for agent-assisted development</h4><p>Repository instructions, scoped tickets, one branch per ticket, explicit stop conditions and human-controlled merges.</p><p class="chk"><strong>Checked by:</strong> tests, type checks, linting and architecture-boundary rules in CI. <em>Planned:</em> evaluation fixtures for tool use and numerical correctness.</p></div></details>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-head">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.7 7.7L11 15.6M16.3 7.7L13 15.6M8.5 6h7"/></svg></div>
+          <div><h3>Quantitative engineering</h3><div class="src">Production · personal project</div></div>
+        </div>
+        <p class="desc">Python, R, MATLAB and SQL; MATLAB-to-Python porting with numerical parity; tested pipelines, Git and CI/CD; Streamlit and R Shiny decision tools.</p>
+        <div class="used-in"><strong>Where I used it:</strong> The <a href="projects.html">bank risk-engine migration</a> with automated tests and GitLab CI; SAP HANA integration of the anomaly pipeline; 1,600+ tests and strict CI in my <a href="ailab.html">personal platform</a>.</div>
+        <details class="methods"><summary>Methods in detail</summary><div class="mg"><h4>Languages and data</h4><p>Python (NumPy, pandas, SciPy, statsmodels, scikit-learn), R (data.table, survival models, Shiny), MATLAB and SQL, including SAP HANA integration.</p><p class="chk"><strong>Checked by:</strong> reconciling definitions and input conventions when porting between MATLAB and Python.</p></div><div class="mg"><h4>Research-to-production architecture</h4><p>Pipelines from ingestion to scoring; domain logic, statistical kernels, services, adapters and UI kept separate; typed service contracts; persisted artefacts with training and scoring separated.</p><p class="chk"><strong>Checked by:</strong> model-input schema checks that fail loudly instead of silently.</p></div><div class="mg"><h4>Testing and reproducibility</h4><p>Unit and integration tests with tolerance-aware reference values; timestamp-valid backtests; Git pull requests, GitLab CI and GitHub Actions; pytest, ruff and mypy; fixed seeds and explicit configuration.</p><p class="chk"><strong>Checked by:</strong> data-quality controls for missing, duplicated, mistyped and misaligned data.</p></div></details>
       </div>
 
+    </div>
+    <div class="reveal" style="margin-top:24px;">
+      <a class="btn btn-ghost" href="Vivek_Bhargava_Technical_Capabilities.pdf" target="_blank" rel="noopener">Full capability profile (PDF)
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
 </section>

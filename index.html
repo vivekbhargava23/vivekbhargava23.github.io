@@ -70,7 +70,7 @@
       <p class="eyebrow">Quant research · production engineering · applied AI</p>
       <h1>I build quantitative systems that<br><span class="grad">ship, get tested, and hold up.</span></h1>
       <p class="role">Quantitative Researcher at Fraunhofer ITWM — Mathematical Finance</p>
-      <p class="blurb">Risk engines, portfolio optimisation, forecasting and survival systems delivered as production software for banks, insurers, and automotive clients. I own the full path — model design, validation and backtesting, deployment, and the code that has to survive after I hand it over.</p>
+      <p class="blurb">Risk engines, portfolio optimisation, forecasting and survival systems delivered as production software for banks, insurers, and automotive clients. I work across the full path — model design, validation and backtesting, deployment, and the code that has to survive after I hand it over.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="projects.html">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h12"/></svg>
@@ -96,11 +96,11 @@
 <section class="section-tight">
   <div class="wrap creds">
     <div class="cred reveal">
-      <div class="ct">Lead, architect or sole developer</div>
-      <div class="cl">on client systems at Fraunhofer ITWM, Germany's largest applied-research organisation.</div>
+      <div class="ct">Lead or sole developer</div>
+      <div class="cl">on several client systems at Fraunhofer ITWM, Germany's largest applied-research organisation.</div>
     </div>
     <div class="cred reveal">
-      <div class="ct">In daily production use</div>
+      <div class="ct">In production use</div>
       <div class="cl">at a Luxembourg bank, a major German insurer, and a premium automotive manufacturer.</div>
     </div>
     <div class="cred reveal">
@@ -108,47 +108,29 @@
       <div class="cl">problem framing, model design, validation, deployment — and the handover after.</div>
     </div>
     <div class="cred reveal">
-      <div class="ct">Sets the bar for others</div>
+      <div class="ct">Reviews others' work</div>
       <div class="cl">scopes work packages for research assistants, reviews their merge requests, owns the merge.</div>
     </div>
   </div>
 </section>
 
-<!-- AREAS OF EXPERTISE -->
-<section>
+<!-- HOW I WORK -->
+<section style="padding-top:0;">
   <div class="wrap">
-    <div class="reveal">
-      <h2 class="section-title">Areas of expertise</h2>
-      <p class="section-lead">What I build, validate, and hand over — with the methods that do the work named where they belong.</p>
-    </div>
-
-    <dl class="areas" style="margin-top:30px;">
-      <div class="area reveal">
-        <dt>Forecasting &amp; econometrics</dt>
-        <dd>ARIMA/SARIMA, VAR/VECM, cointegration, state-space and mixed-frequency models; rolling and expanding-window backtesting, Diebold–Mariano testing, bootstrap inference and Monte Carlo simulation.</dd>
+    <div class="reveal"><h2 class="section-title">How I work</h2></div>
+    <div class="grid-3" style="margin-top:24px;">
+      <div class="card reveal">
+        <h3>Understand the estimator</h3>
+        <p>I know what a method estimates and what it assumes before I rely on it. In my M.Sc. I implemented the core econometric methods from scratch rather than calling libraries.</p>
       </div>
-      <div class="area reveal">
-        <dt>Risk, portfolio &amp; cashflows</dt>
-        <dd>VaR and Expected Shortfall, performance and drawdown analytics, strategic asset allocation, mean-variance and multi-criteria optimisation, covariance estimation, cashflow and liquidity modelling, regulatory-capital and HGB/IFRS outputs.</dd>
+      <div class="card reveal">
+        <h3>Know where models fail</h3>
+        <p>The vehicle-failure model I built states its own limit: past ~1,300 days the survival curve flattens, so it is not used to extrapolate there.</p>
       </div>
-      <div class="area reveal">
-        <dt>Statistical learning</dt>
-        <dd>Regularised regression, tree ensembles, neural networks, anomaly-detection ensembles, survival analysis and clustering; temporal cross-validation, feature selection, and assessment of extrapolation limits.</dd>
+      <div class="card reveal">
+        <h3>Make the system reliable</h3>
+        <p>The bank's new Python risk library had to match the legacy MATLAB engine at numerical parity, with every divergence traced to rounding noise or a real bug.</p>
       </div>
-      <div class="area reveal">
-        <dt>Model validation &amp; delivery</dt>
-        <dd>Numerical-parity testing, sensitivity and sanity checks, mixed-frequency data alignment, automated test suites, database-write controls, and documented model-use boundaries.</dd>
-      </div>
-      <div class="area reveal">
-        <dt>Engineering</dt>
-        <dd>Python, R, SQL and MATLAB; scikit-learn, statsmodels, darts, TensorFlow/Keras, SciPy, pandas, NumPy and Pydantic; Git, pytest, GitLab CI/CD, PostgreSQL, SAP HANA, Streamlit and R Shiny.</dd>
-      </div>
-    </dl>
-
-    <div class="reveal" style="margin-top:24px;">
-      <a class="btn btn-ghost" href="expertise.html">See where each method shipped
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
     </div>
   </div>
 </section>
@@ -165,7 +147,7 @@
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 4-6"/></svg></div>
         <div class="kicker">Quant / production research</div>
         <h3>Risk, portfolio & forecasting systems</h3>
-        <p>Legacy MATLAB risk engine re-engineered to a production Python library (Luxembourg bank); the decision-support layer of a multi-criteria asset allocation system in operative use at a German insurer; forecasting, cashflow and survival pipelines for automotive and insurance clients — owned end to end, data through deployment.</p>
+        <p>Legacy MATLAB risk engine re-engineered to a production Python library (Luxembourg bank); the decision-support layer of a multi-criteria asset allocation system in operative use at a German insurer; forecasting, cashflow and survival pipelines for automotive and insurance clients — each with my role stated on the projects page.</p>
         <div class="tags">
           <span class="tag">VaR / CVaR / ES</span><span class="tag">VAR · VECM · SVAR</span><span class="tag">Survival analysis</span><span class="tag">Pareto optimisation</span>
         </div>
@@ -174,12 +156,17 @@
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/><circle cx="12" cy="12" r="3"/></svg></div>
         <div class="kicker">Builder / applied AI</div>
         <h3>An AI-augmented analytics platform</h3>
-        <p>A solo-built investment-analytics platform on clean four-layer architecture, with a German FIFO capital-gains tax engine, FX-aware valuation and risk analytics — shipped through a human-in-the-loop agentic-AI delivery workflow with strict CI, type, and architecture-boundary gates.</p>
+        <p>A solo-built investment-analytics platform on clean four-layer architecture, with a German FIFO capital-gains tax engine, FX-aware valuation and risk analytics, and a read-only MCP server that gives language models typed access to its numbers. Built through a human-in-the-loop agent workflow with strict CI, type and architecture-boundary gates.</p>
         <div class="tags">
-          <span class="tag">Python · Streamlit</span><span class="tag">Pydantic v2</span><span class="tag">Clean architecture</span><span class="tag">Agentic workflow</span>
+          <span class="tag">Python · Streamlit</span><span class="tag">Pydantic v2</span><span class="tag">Clean architecture</span><span class="tag">MCP</span><span class="tag">Agentic workflow</span>
         </div>
         <p style="margin-top:14px;"><a href="ailab.html">Visit the AI Lab &rarr;</a></p>
       </div>
+    </div>
+    <div class="reveal" style="margin-top:24px;">
+      <a class="btn btn-ghost" href="expertise.html">See the capability map
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
 </section>
