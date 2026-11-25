@@ -167,7 +167,7 @@
           <div class="tags"><span class="tag">Anomaly detection</span><span class="tag">Ensemble stacking</span><span class="tag">Isolation Forest</span><span class="tag">Weak / partial labels</span><span class="tag">Distribution shift</span><span class="tag">Reproducible pipeline</span></div>
         </div>
         <ul>
-          <li>Designed and shipped major components of a production pipeline that scores ~900K aggregated warranty claims for over-claiming, combining supervised learners (random forest, gradient-boosted trees, neural net) with unsupervised detectors (group-conditional Z-score, Isolation Forest) through a stacking meta-model.</li>
+          <li>Designed and shipped major components of a production pipeline that scores ~900K aggregated warranty claims for over-claiming, combining supervised tree ensembles (random forest, gradient boosting) with unsupervised detectors (group-conditional Z-score, Isolation Forest) through a stacking meta-model.</li>
           <li>The hard part was the labels: audits cover only part of the history, so supervised models are trained on the well-audited window and the unsupervised detectors cover the rest, since they need no labels.</li>
           <li>Separated training from scoring with persisted model artefacts, and added validation checks (score range, mean and volume) that must pass before results are written to SAP HANA.</li>
         </ul>
